@@ -1,19 +1,13 @@
 export default function Header() {
     return(
-        <header>
-            <nav className="bg-slate-100 w-full h-10">
+        <header className="px-3">
+            <nav className="flex justify-between bg-red-900">
                 <a href="#">Logo</a>
-                <ul>
-                    <li>Men</li>
-                    <li>Woman</li>
-                    <li>Kids</li>
-                </ul>
-                <ul>
+                <ul className="flex space-x-2">
                     <li>Cart</li>
                     <li>Heart</li>
                 </ul>
             </nav>
-            <h1 className="text-gray-600">TESTE</h1>
         </header>
     )
 }
