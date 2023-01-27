@@ -8,10 +8,9 @@ export default function Header() {
     const [openMenu, setOpenMenu] = useState<boolean>(false);
     const handleOpenMenu = () => setOpenMenu(!openMenu);
 
-    useEffect(() => console.log(openMenu), [openMenu])
     return(
-        <div className="bg-slate-50 text-slate-800 ">
-            <header className="p-2 w-full z-10 ">
+        <div className="bg-slate-50 text-slate-800 overflow-hidden">
+            <header className="p-2 w-full z-10 overf">
                 <nav className="flex justify-between">
                     <button onClick={handleOpenMenu} className="lg:hidden">
                         <HiOutlineMenuAlt4 />
