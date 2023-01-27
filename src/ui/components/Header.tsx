@@ -1,4 +1,4 @@
-import { HiOutlineShoppingBag, HiOutlineHeart, HiOutlineMenuAlt4 } from "react-icons/hi";
+import { HiOutlineShoppingBag, HiOutlineHeart, HiX, HiOutlineMenu } from "react-icons/hi";
 import Image from "next/image";
 import Logo from "./Logo";
 import { useState, useEffect } from "react"
@@ -13,7 +13,7 @@ export default function Header() {
             <header className="p-2 w-full z-10 overf">
                 <nav className="flex justify-between">
                     <button onClick={handleOpenMenu} className="lg:hidden">
-                        <HiOutlineMenuAlt4 />
+                        {openMenu ? <HiX /> : <HiOutlineMenu />}
                     </button>
                     <Logo />
                     <ul className="flex space-x-2 items-center">

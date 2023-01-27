@@ -12,7 +12,7 @@ export default function Menu({ open }: MenuProps) {
     ]
 
     return(
-        <div className={`${open ? 'max-h-[115vh]' : 'max-h-0'} transition-all duration-500`}>
+        <div className={`${open ? 'max-h-[115vh]' : 'max-h-0'} transition-all duration-500 lg:hidden`}>
             <nav>
                 <ul className="flex flex-col py-2">
                     <li className="h-[30vh]">
