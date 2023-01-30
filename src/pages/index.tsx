@@ -1,13 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Header from '@/ui/components/Header'
 import React, { useEffect, useState } from 'react'
+import MainBanner from "../ui/components/MainBanner"
 
-import dynamic from 'next/dynamic'
 import Video from '@/ui/components/Video'
-
-const ReactPlayer = dynamic(() => import("react-player"), {ssr: false});
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,8 +21,11 @@ export default function Home() {
       </Head>
       <Header />
       <section>
-        <div className='w-[200vw] absolute left-[-50%] top-50'>
+        <div className="hidden md:block">
           <Video />
+        </div>
+        <div className="md:hidden">
+          <MainBanner img='/zion4.jpg'/>
         </div>
       </section>
     </>
