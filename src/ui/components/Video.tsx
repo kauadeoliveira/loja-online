@@ -18,7 +18,7 @@ export default function Video() {
     return(
         <div className="absolute">
             <div className="bg-black h-full w-full z-20 absolute top-0 bottom-0 opacity-40">
-                <button onClick={handlePlayed} className="absolute left-1 top-1">
+                <button onClick={handlePlayed} className="absolute right-1 bottom-1">
                     <i>
                         {played ? <HiPause /> : <HiPlay />}
                     </i>
