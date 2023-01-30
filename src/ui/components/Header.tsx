@@ -9,7 +9,7 @@ export default function Header() {
     const handleOpenMenu = () => setOpenMenu(!openMenu);
 
     return(
-        <div className="bg-slate-50 text-slate-800 overflow-hidden">
+        <div className={`bg-slate-50 text-slate-800 ${openMenu ? 'fixed top-0 w-[100%] h-[100%] z-50 overflow-auto' : 'overflow-hidden'}`}>
             <header className="p-2 w-full z-10 overf">
                 <nav className="flex justify-between">
                     <button onClick={handleOpenMenu} className="lg:hidden">

@@ -1,12 +1,19 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
 import Header from '@/ui/components/Header'
+import React, { useEffect, useState } from 'react'
+
+import dynamic from 'next/dynamic'
+import Video from '@/ui/components/Video'
+
+const ReactPlayer = dynamic(() => import("react-player"), {ssr: false});
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [urlVideo, setUrlVideo] = useState<string>();
+
   return (
     <>
       <Head>
@@ -16,6 +23,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <section>
+        <div className='w-[200vw] absolute left-[-50%] top-50'>
+          <Video />
+        </div>
+      </section>
     </>
   )
 }
