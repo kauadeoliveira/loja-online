@@ -20,7 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <section>
+      <section >
         <div className="hidden md:block">
           <Video />
         </div>

@@ -1,5 +1,3 @@
-import React, { PropsWithChildren } from "react";
-
 interface ButtonProps{
     mode: 'dark' | 'light';
     children: React.ReactNode
@@ -29,7 +27,6 @@ export default function Button({ mode, children }: ButtonProps) {
         hover:before:top-[-35%] hover:before:bg-red-700 hover:before:translate-x-[-50%]
         hover:after:top-[-45%] hover:after:bg-red-700 hover:after:translate-x-[-50%]
         hover:after:scale-y-[1.3] hover:after:scale-x-[0.8]
-
         `}>
             {children}
         </button>
