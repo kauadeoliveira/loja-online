@@ -14,7 +14,7 @@ export default function Menu({ open }: MenuProps) {
     return(
         <div className={`${open ? 'max-h-[115vh]' : 'max-h-0'} transition-all duration-500 lg:hidden`}>
             <nav>
-                <ul className="flex flex-col py-2">
+                <ul className="flex flex-col py-2 font-roboto">
                     <li className="h-[30vh]">
                         <Link href="#" className="relative flex justify-center h-full items-center px-4">
                             <span className="text-base text-slate-800 flex justify-center before:content-[''] before:block before:h-px before:bg-stone-400 before:absolute before:w-11/12 before:bottom-0 font-bold after:content-[''] after:block after:h-px after:bg-stone-400 after:absolute after:w-11/12 after:top-0 ">
