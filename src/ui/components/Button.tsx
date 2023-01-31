@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface ButtonProps{
     mode: 'dark' | 'light';
     children: React.ReactNode
@@ -5,7 +7,7 @@ interface ButtonProps{
 
 export default function Button({ mode, children }: ButtonProps) {
     return (
-        <button 
+        <Link href="#" 
         className={`
         ${mode === 'dark' ? 'bg-black text-white': 'bg-white text-black'}
         inline-block py-2 px-4 rounded-md
@@ -29,6 +31,6 @@ export default function Button({ mode, children }: ButtonProps) {
         hover:after:scale-y-[1.3] hover:after:scale-x-[0.8]
         `}>
             {children}
-        </button>
+        </Link>
     )
 }

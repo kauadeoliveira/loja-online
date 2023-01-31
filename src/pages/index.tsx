@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react'
 import MainBanner from "../ui/components/MainBanner"
 
 import Video from '@/ui/components/Video'
+import CardItem from '@/ui/components/CardItem'
+import { title } from 'process'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,15 +21,27 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
       <Header />
-      <section >
-        <div className="hidden md:block">
-          <Video />
-        </div>
-        <div className="md:hidden">
-          <MainBanner img='/zion4.jpg'/>
-        </div>
-      </section>
+      <main className='mt-10 space-y-20 px-4'>
+        <section>
+          <div className="hidden md:block">
+            <Video />
+          </div>
+
+          <div className="md:hidden">
+            <MainBanner img='/zion4.jpg'/>
+          </div>
+        </section>
+        <section className='h-screen'>
+          <h2>Popular Right Now</h2>
+          <CardItem 
+           img="/men.png" 
+           title='Air Jordan Zion 1'
+           price='599'
+          />
+        </section>
+      </main>
     </>
   )
 }
