@@ -1,12 +1,14 @@
 import { HiOutlineShoppingBag, HiOutlineHeart, HiX, HiOutlineMenu } from "react-icons/hi";
 import Image from "next/image";
 import Logo from "./Logo";
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import Menu from "./Menu";
+import { MyContext } from "@/context";
 
 export default function Header() {
-    const [openMenu, setOpenMenu] = useState<boolean>(false);
-    const handleOpenMenu = () => setOpenMenu(!openMenu);
+    const { openMenu } = useContext(MyContext)
+    const { handleOpenMenu } = useContext(MyContext)
+
 
     return(
         <div className={`bg-slate-50 text-slate-800 z-50 w-[100%] top-0 fixed ${openMenu ? 'h-[100%] overflow-auto' : 'overflow-hidden'}`}>

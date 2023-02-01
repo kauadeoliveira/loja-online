@@ -13,13 +13,16 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [urlVideo, setUrlVideo] = useState<string>();
-  // const { openMenu } = useContext(MyContext);
+  const { openMenu } = useContext(MyContext);
 
-  // useEffect(() => {
-  //   if(typeof window !== 'undefined' && openMenu){
-  //     window.document.documentElement.style.overflow = 'hidden'
-  //   }
-  // }, [openMenu])
+  useEffect(() => {
+    if(typeof window !== 'undefined' && openMenu){
+      window.document.documentElement.style.overflow = 'hidden'
+    }else{
+      window.document.documentElement.style.overflow = 'auto'
+    }
+    console.log(openMenu)
+  }, [openMenu])
   return (
     <>
       <Head>
