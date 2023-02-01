@@ -1,18 +1,25 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Header from '@/ui/components/Header'
-import React, { useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState, useContext } from 'react'
 import MainBanner from "../ui/components/MainBanner"
 
 import Video from '@/ui/components/Video'
 import CardItem from '@/ui/components/CardItem'
-import { title } from 'process'
+import { MyContext } from '@/context'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default function Home() {
   const [urlVideo, setUrlVideo] = useState<string>();
+  // const { openMenu } = useContext(MyContext);
 
+  // useEffect(() => {
+  //   if(typeof window !== 'undefined' && openMenu){
+  //     window.document.documentElement.style.overflow = 'hidden'
+  //   }
+  // }, [openMenu])
   return (
     <>
       <Head>

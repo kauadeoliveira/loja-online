@@ -1,8 +1,9 @@
+import { ChildrenType } from "@/types/children";
 import Link from "next/link";
 
 interface ButtonProps{
     mode: 'dark' | 'light';
-    children: React.ReactNode
+    children: ChildrenType
 }
 
 export default function Button({ mode, children }: ButtonProps) {
