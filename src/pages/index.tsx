@@ -7,6 +7,7 @@ import MainBanner from "../ui/components/MainBanner"
 import Video from '@/ui/components/Video'
 import CardItem from '@/ui/components/CardItem'
 import { MyContext } from '@/context'
+import { formatToReal } from '@/utils/formatToReal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function Home() {
     }
     console.log(openMenu)
   }, [openMenu])
+
   return (
     <>
       <Head>
@@ -48,7 +50,7 @@ export default function Home() {
           <CardItem 
            img="/men.png" 
            title='Air Jordan Zion 1'
-           price='599'
+           price={599}
           />
         </section>
       </main>

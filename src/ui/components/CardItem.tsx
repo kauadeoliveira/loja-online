@@ -1,29 +1,40 @@
+import { formatToReal } from "@/utils/formatToReal";
 import Image from "next/image";
 import Link from "next/link";
-import { HiOutlineShoppingBag, HiOutlineHeart, HiX, HiOutlineMenu } from "react-icons/hi";
+import { format } from "path";
+import { HiOutlineHeart } from "react-icons/hi";
 
 interface CardItemProps{
     img: string;
     title: string;
-    price: string;
+    price: number;
 }
 
 export default function CardItem({ img, title, price}: CardItemProps) {
     return(
-        <Link 
-         href="#"
-         className="block bg-white h-96 w-80 rounded-xl shadow-inner drop-shadow-lg p-3 transition-transform duration-300 hover:scale-[1.03]">
-            <Image src={img} width={320} height={384} alt={`${title} image`}/>
+        <div 
+         className="block bg-white w-80 rounded-xl shadow-inner drop-shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+            <div>
+                <Link href="#"className="block p-3">
+                    <Image src={img} width={320} height={384} alt={`${title} image`}/>
+                </Link>
+            </div>
 
             <div>
                 <div className="flex justify-between items-center">
-                    <h3 className="font-black text-xl">{title}</h3>
-                    <i>
-                        <HiOutlineHeart />
-                    </i>
+                    <Link href="#" className="px-3 w-full font-black text-xl">
+                        <h3>{title}</h3>
+                    </Link>
+                    <button onClick={() => console.log('clicou no fav')} className="px-3 h-3">
+                        <i>
+                            <HiOutlineHeart />
+                        </i>
+                    </button>
                 </div>
-                <p className="font-bold">R${price}</p>
+                <Link href="#" className="block px-3 pb-3 font-bold">
+                    <p>{formatToReal(price)}</p>
+                </Link>
             </div>
-        </Link>
+        </div>
     )
 }
