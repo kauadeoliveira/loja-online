@@ -9,12 +9,21 @@ import CardItem from '@/ui/components/CardItem'
 import { MyContext } from '@/context'
 import { formatToReal } from '@/utils/formatToReal'
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from 'swiper'
+
+
 const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
   const [urlVideo, setUrlVideo] = useState<string>();
   const { openMenu } = useContext(MyContext);
+
+  // const [featuredCards, setFeaturedCards] = useState([])
 
   useEffect(() => {
     if(typeof window !== 'undefined' && openMenu){
@@ -35,7 +44,7 @@ export default function Home() {
       </Head>
       
       <Header />
-      <main className='mt-10 space-y-20 px-4'>
+      <main className='mt-12 space-y-14 px-4'>
         <section>
           <div className="hidden md:block">
             <Video />
@@ -47,11 +56,30 @@ export default function Home() {
         </section>
         <section className='h-screen'>
           <h2>Popular Right Now</h2>
-          <CardItem 
-           img="/men.png" 
-           title='Air Jordan Zion 1'
-           price={599}
-          />
+          <Swiper
+           slidesPerView={1.3}
+           spaceBetween={30}
+           className="mySwiper"
+          >
+            <SwiperSlide className='py-3'>
+              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
+            </SwiperSlide>
+            <SwiperSlide className='py-3'>
+              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
+            </SwiperSlide>
+            <SwiperSlide className='py-3'>
+              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
+            </SwiperSlide>
+            <SwiperSlide className='py-3'>
+              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
+            </SwiperSlide>
+            <SwiperSlide className='py-3'>
+              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
+            </SwiperSlide>
+            <SwiperSlide className='py-3'>
+              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
+            </SwiperSlide>
+          </Swiper>
         </section>
       </main>
     </>
