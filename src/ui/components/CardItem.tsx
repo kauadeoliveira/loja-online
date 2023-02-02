@@ -13,16 +13,16 @@ interface CardItemProps{
 export default function CardItem({ img, title, price}: CardItemProps) {
     return(
         <div 
-         className="block bg-white w-80 rounded-xl shadow-inner drop-shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+         className="block bg-white w-56 rounded-xl shadow-inner drop-shadow-lg transition-transform duration-300 hover:scale-[1.03]">
             <div>
                 <Link href="#"className="block p-3">
-                    <Image src={img} width={320} height={384} alt={`${title} image`}/>
+                    <Image src={img} width={224} height={224} alt={`${title} image`}/>
                 </Link>
             </div>
 
             <div>
                 <div className="flex justify-between items-center">
-                    <Link href="#" className="px-3 w-full font-black text-xl">
+                    <Link href="#" className="px-3 w-full font-black text-">
                         <h3>{title}</h3>
                     </Link>
                     <button onClick={() => console.log('clicou no fav')} className="px-3 h-3">
