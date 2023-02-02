@@ -12,7 +12,7 @@ export default function CardItem({ img, name, price}: Pick<Item, 'name' | 'price
          className="block bg-white w-72 rounded-xl shadow-inner drop-shadow-lg transition-transform duration-300 hover:scale-[1.03]">
             <div>
                 <Link href="#"className="block p-3">
-                    <Image src={img} width={224} height={224} alt={`${name} image`}/>
+                    <Image src={img} width={288} height={288} alt={`${name} image`}/>
                 </Link>
             </div>
 

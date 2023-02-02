@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Header from '@/ui/components/Header'
-import React, { createContext, useEffect, useState, useContext } from 'react'
+import React, { createContext, useEffect, useState, useContext, useRef } from 'react'
 import MainBanner from "../ui/components/MainBanner"
 
 import Video from '@/ui/components/Video'
@@ -11,9 +11,10 @@ import { formatToReal } from '@/utils/formatToReal'
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css";
 import { Pagination } from 'swiper'
+import { Item } from '@/types/item'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,7 +24,11 @@ export default function Home() {
   const [urlVideo, setUrlVideo] = useState<string>();
   const { openMenu } = useContext(MyContext);
 
-  // const [featuredCards, setFeaturedCards] = useState([])
+  const [featuredItems, setFeaturedItems] = useState<Item[]>([
+    {name: 'Air Jordan Zion 1', img: '/men.png', price: 599},
+    {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999},
+    {name: 'Puma RS-X Pikachu', img: '/kids.jpeg', price:449.90},
+  ])
 
   useEffect(() => {
     if(typeof window !== 'undefined' && openMenu){
@@ -56,29 +61,16 @@ export default function Home() {
         </section>
         <section className='h-screen'>
           <h2>Popular Right Now</h2>
-          <Swiper
-           slidesPerView={1.3}
-           spaceBetween={30}
-           className="mySwiper"
-          >
-            <SwiperSlide className='py-3'>
-              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
-            </SwiperSlide>
-            <SwiperSlide className='py-3'>
-              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
-            </SwiperSlide>
-            <SwiperSlide className='py-3'>
-              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
-            </SwiperSlide>
-            <SwiperSlide className='py-3'>
-              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
-            </SwiperSlide>
-            <SwiperSlide className='py-3'>
-              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
-            </SwiperSlide>
-            <SwiperSlide className='py-3'>
-              <CardItem img='/men.png' price={599} name="Air Jordan Zion 1"/>
-            </SwiperSlide>
+          <Swiper slidesPerView={1.3} spaceBetween={30} className="mySwiper">
+            {featuredItems.map((item, index) => (
+              <SwiperSlide className='py-3' key={index}>
+                <CardItem 
+                 name={item.name}
+                 img={item.img}
+                 price={item.price}
+                />
+              </SwiperSlide>
+              ))}
           </Swiper>
         </section>
       </main>
