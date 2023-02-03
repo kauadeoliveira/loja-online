@@ -16,17 +16,19 @@ export default function Video() {
     }, [played])
 
     return(
-        <div className="absolute">
-            <div className="bg-black h-full w-full z-20 absolute top-0 bottom-0 opacity-40">
-                <button onClick={handlePlayed} className="absolute right-1 bottom-1">
+        <div className="relative">
+            <div className="bg-black h-full w-full top-0 bottom-0 z-10 absolute opacity-40">
+                <button onClick={handlePlayed} className="text-white text-3xl absolute bottom-2 right-2">
                     <i>
                         {played ? <HiPause /> : <HiPlay />}
                     </i>
-                </button>   
+                </button>
             </div>
-            <video src="zion.mp4" loop width="100%" height="100%" ref={videoRef} autoPlay muted>
-                Your browser does not support the video tag.
-            </video>
+            <div>
+                <video src="zion.mp4" loop ref={videoRef} autoPlay muted >
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
     )
 }

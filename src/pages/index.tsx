@@ -48,39 +48,27 @@ export default function Home() {
       </Head>
       
       <Header />
-      <main className='mt-12 space-y-14 px-4'>
+      <main className='mt-12 space-y-14'>
         <section>
           <div className="hidden md:block">
             <Video />
           </div>
-
           <div className="md:hidden">
             <MainBanner img='/zion4.jpg'/>
           </div>
         </section>
-        <section className='h-screen'>
-          <h2>Popular Right Now</h2>
-          <Swiper slidesPerView={1.3} spaceBetween={30}>
-            {featuredItems.map((item, index) => (
-              <SwiperSlide key={index}>
-                <div>
-                  <CardItem img={'/men.png'} name={item.name} price={item.price} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          {/* <Swiper slidesPerView={1.3} spaceBetween={30} className="mySwiper">
-            {featuredItems.map((item, index) => (
-              <SwiperSlide key={index}>
-                <CardItem 
-                 name={item.name}
-                 img={item.img}
-                 price={item.price}
-                />
-              </SwiperSlide>
+        <div className='px-4'>
+          <section>
+            <h2>Popular Right Now</h2>
+            <Swiper slidesPerView={1.3} spaceBetween={30}>
+              {featuredItems.map((item, index) => (
+                <SwiperSlide key={index}>
+                    <CardItem img={item.img} name={item.name} price={item.price} />
+                </SwiperSlide>
               ))}
-          </Swiper> */}
-        </section>
+            </Swiper>
+          </section>
+        </div>
       </main>
     </>
   )
