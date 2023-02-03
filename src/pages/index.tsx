@@ -14,6 +14,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css";
 import { Item } from '@/types/item'
+import { ContextType } from '@/types/context'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,7 +22,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [urlVideo, setUrlVideo] = useState<string>();
-  const { openMenu } = useContext(MyContext);
+  const { openMenu }: Partial<ContextType> = useContext(MyContext);
 
   const [featuredItems, setFeaturedItems] = useState<Item[]>([
     {name: 'Air Jordan Zion 1', img: '/men.png', price: 599},

@@ -3,10 +3,10 @@ import Logo from "./Logo";
 import { useState, useEffect, useContext } from "react"
 import Menu from "./Menu";
 import { MyContext } from "@/context";
+import { ContextType } from "@/types/context";
 
 export default function Header() {
-    const { openMenu } = useContext(MyContext);
-    const { handleOpenMenu } = useContext(MyContext);
+    const { handleOpenMenu, openMenu }: Partial<ContextType> = useContext(MyContext);
 
     return(
         <div className={`bg-slate-50 text-slate-800 z-50 w-[100%] top-0 fixed ${openMenu ? 'h-[100%] overflow-auto' : 'overflow-hidden'}`}>
