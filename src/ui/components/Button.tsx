@@ -1,7 +1,7 @@
 import { ChildrenType } from "@/types/children";
 import Link from "next/link";
 
-interface ButtonProps{
+type ButtonProps = {
     mode: 'dark' | 'light';
     children: ChildrenType
 }

@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import { FaLinkedin, FaGithub, FaGoogle } from "react-icons/fa";
-import { IconType } from "react-icons/lib";
-interface MenuProps {
+
+type MenuProps = {
     open: boolean;
 }
 
@@ -38,7 +38,6 @@ export default function Menu({ open }: MenuProps) {
                     </li>
                 </ul>
             </nav>
-
             <div className="text-center h-[10vh] mt-9">
                 <ul className="flex space-x-3 justify-center text-xl">
                     {socialMediaIcons.map(icon => (

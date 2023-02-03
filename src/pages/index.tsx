@@ -26,7 +26,7 @@ export default function Home() {
   const [featuredItems, setFeaturedItems] = useState<Item[]>([
     {name: 'Air Jordan Zion 1', img: '/men.png', price: 599},
     {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999},
-    {name: 'Puma RS-X Pikachu', img: '/kids.png', price:449.90},
+    {name: 'Nike Flex Runner 2', img: '/kids.png', price:250},
   ])
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function Home() {
       </Head>
       
       <Header />
-      <main className='mt-12 space-y-14'>
+      <main className='mt-12 space-y-5'>
         <section>
           {/* Mobile */}
           <div className="md:hidden">
@@ -62,10 +62,10 @@ export default function Home() {
         </section>
         <div className='px-4'>
           <section>
-            <h2>Popular Right Now</h2>
+            <h2 className="font-bold text-xl mb-4">Popular Right Now</h2>
             {/* Mobile */}
-            <div className='md:hidden p-5'>
-              <Swiper slidesPerView={1.3} spaceBetween={30}>
+            <div className='md:hidden'>
+              <Swiper slidesPerView={1.3}>
                 {featuredItems.map((item, index) => (
                   <SwiperSlide key={index}>
                       <CardItem img={item.img} name={item.name} price={item.price} />
