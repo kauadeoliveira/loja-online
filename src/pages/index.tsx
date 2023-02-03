@@ -3,6 +3,9 @@ import { Inter } from '@next/font/google'
 import Header from '@/ui/components/Header'
 import React, { createContext, useEffect, useState, useContext, useRef } from 'react'
 import MainBanner from "../ui/components/MainBanner"
+import { TbBox, TbTruckReturn } from "react-icons/tb";
+import { HiOutlineShoppingBag } from "react-icons/hi";
+
 
 import Video from '@/ui/components/Video'
 import CardItem from '@/ui/components/CardItem'
@@ -15,9 +18,15 @@ import "swiper/css/pagination";
 import "swiper/css";
 import { Item } from '@/types/item'
 import { ContextType } from '@/types/context'
+import Image from 'next/image'
+import { InfoCardType } from '@/types/infoCard'
+import InfoCard from '@/ui/components/InfoCard'
+
+
 
 
 const inter = Inter({ subsets: ['latin'] })
+
 
 
 export default function Home() {
@@ -28,6 +37,12 @@ export default function Home() {
     {name: 'Air Jordan Zion 1', img: '/men.png', price: 599},
     {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999},
     {name: 'Nike Flex Runner 2', img: '/kids.png', price:250},
+  ])
+
+  const [infoCards, setInfoCards] = useState<InfoCardType[]>([
+    {icon: TbBox, title: 'Entrega Gratis e Rapida', description:'Aproveite a entrega gratuita em todos os itens do estoque'},
+    {icon: HiOutlineShoppingBag, title: 'Retirada na loja', description:'Compre online e retire numa loja Viten mais próxima de você.'},
+    {icon: TbTruckReturn, title: 'Devoluções fáceis e gratuitas', description:'Devolva os itens qualificados em até 14 dias após o recebimento.'},
   ])
 
   useEffect(() => {
@@ -80,6 +95,12 @@ export default function Home() {
               {featuredItems.map((item, index) => (
                 <CardItem img={item.img} name={item.name} price={item.price} key={index}/>
               ))}
+            </div>
+          </section>
+
+          <section>
+            <div className='flex gap-10 flex-col items-center md:flex-row md:justify-center'>
+              {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
             </div>
           </section>
         </div>

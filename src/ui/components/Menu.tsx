@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaLinkedin, FaGithub, FaGoogle } from "react-icons/fa";
 
 type MenuProps = {
-    open: boolean;
+    open?: boolean;
 }
 
 export default function Menu({ open }: MenuProps) {

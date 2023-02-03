@@ -16,7 +16,7 @@ export default function CardItem({ img, name, price}: Pick<Item, 'name' | 'price
             </div>
             <div>
                 <div className="flex justify-between items-center">
-                    <Link href="#" className="px-3 w-full font-black text-">
+                    <Link href="#" className="px-3 w-full">
                         <h3>{name}</h3>
                     </Link>
                     <button onClick={() => console.log('clicou no fav')} className="px-3 h-3">
@@ -25,7 +25,7 @@ export default function CardItem({ img, name, price}: Pick<Item, 'name' | 'price
                         </i>
                     </button>
                 </div>
-                <Link href="#" className="block px-3 pb-3 font-bold">
+                <Link href="#" className="block px-3 pb-3">
                     <p>{formatToReal(price)}</p>
                 </Link>
             </div>
