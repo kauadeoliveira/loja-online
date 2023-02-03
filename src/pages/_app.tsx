@@ -1,4 +1,4 @@
-import ContextProvider, { MyContext } from '@/context'
+import ContextProvider from '@/context'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 

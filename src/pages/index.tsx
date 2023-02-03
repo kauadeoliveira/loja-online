@@ -13,7 +13,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/pagination";
 import "swiper/css";
-import { Pagination } from 'swiper'
 import { Item } from '@/types/item'
 
 
@@ -61,9 +60,18 @@ export default function Home() {
         </section>
         <section className='h-screen'>
           <h2>Popular Right Now</h2>
-          <Swiper slidesPerView={1.3} spaceBetween={30} className="mySwiper">
+          <Swiper slidesPerView={1.3} spaceBetween={30}>
             {featuredItems.map((item, index) => (
-              <SwiperSlide className='py-3' key={index}>
+              <SwiperSlide key={index}>
+                <div>
+                  <CardItem img={'/men.png'} name={item.name} price={item.price} />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          {/* <Swiper slidesPerView={1.3} spaceBetween={30} className="mySwiper">
+            {featuredItems.map((item, index) => (
+              <SwiperSlide key={index}>
                 <CardItem 
                  name={item.name}
                  img={item.img}
@@ -71,7 +79,7 @@ export default function Home() {
                 />
               </SwiperSlide>
               ))}
-          </Swiper>
+          </Swiper> */}
         </section>
       </main>
     </>
