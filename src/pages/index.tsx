@@ -26,7 +26,7 @@ export default function Home() {
   const [featuredItems, setFeaturedItems] = useState<Item[]>([
     {name: 'Air Jordan Zion 1', img: '/men.png', price: 599},
     {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999},
-    {name: 'Puma RS-X Pikachu', img: '/kids.jpeg', price:449.90},
+    {name: 'Puma RS-X Pikachu', img: '/kids.png', price:449.90},
   ])
 
   useEffect(() => {
@@ -50,23 +50,36 @@ export default function Home() {
       <Header />
       <main className='mt-12 space-y-14'>
         <section>
+          {/* Mobile */}
+          <div className="md:hidden">
+              <MainBanner img='/zion4.jpg'/>
+          </div>
+
+          {/* Desktop */}
           <div className="hidden md:block">
             <Video />
-          </div>
-          <div className="md:hidden">
-            <MainBanner img='/zion4.jpg'/>
           </div>
         </section>
         <div className='px-4'>
           <section>
             <h2>Popular Right Now</h2>
-            <Swiper slidesPerView={1.3} spaceBetween={30}>
+            {/* Mobile */}
+            <div className='md:hidden p-5'>
+              <Swiper slidesPerView={1.3} spaceBetween={30}>
+                {featuredItems.map((item, index) => (
+                  <SwiperSlide key={index}>
+                      <CardItem img={item.img} name={item.name} price={item.price} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
+            {/* Desktop */}
+            <div className='hidden md:flex gap-5 justify-center p-5'>
               {featuredItems.map((item, index) => (
-                <SwiperSlide key={index}>
-                    <CardItem img={item.img} name={item.name} price={item.price} />
-                </SwiperSlide>
+                <CardItem img={item.img} name={item.name} price={item.price} key={index}/>
               ))}
-            </Swiper>
+            </div>
           </section>
         </div>
       </main>
