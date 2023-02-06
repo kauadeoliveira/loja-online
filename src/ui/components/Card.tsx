@@ -26,7 +26,7 @@ export default function Card({ img, name, price, type }: CardType) {
                     </button>
                 </div>
                 <Link href="#" className="block px-3 pb-3">
-                    <p>{formatToReal(price)}</p>
+                    <p>{price ? formatToReal(price) : false}</p>
                 </Link>
             </div>
         </div>

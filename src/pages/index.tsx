@@ -22,6 +22,7 @@ import { InfoCardType } from '@/types/infoCard'
 import InfoCard from '@/ui/components/InfoCard'
 import Card from '@/ui/components/Card'
 import { CardType } from '@/types/card'
+import Carousel from '@/ui/components/Carousel'
 
 
 // 
@@ -39,15 +40,21 @@ export default function Home() {
   const { openMenu }: Partial<ContextType> = useContext(MyContext);
 
   const [featuredItems, setFeaturedItems] = useState<CardType[]>([
-    {name: 'Air Jordan Zion 1', img: '/men.png', price: 599},
-    {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999},
-    {name: 'Nike Flex Runner 2', img: '/kids.png', price:250},
+    {name: 'Air Jordan Zion 1', img: '/men.png', price: 599, type:'item'},
+    {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999, type:'item'},
+    {name: 'Nike Flex Runner 2', img: '/kids.png', price:250, type:'item'},
   ])
 
   const [infoCards, setInfoCards] = useState<InfoCardType[]>([
     {icon: TbBox, title: 'Entrega Gratis e Rapida', description:'Aproveite a entrega gratuita em todos os itens do estoque'},
     {icon: HiOutlineShoppingBag, title: 'Retirada na loja', description:'Compre online e retire numa loja Viten mais próxima de você.'},
     {icon: TbTruckReturn, title: 'Devoluções fáceis e gratuitas', description:'Devolva os itens qualificados em até 14 dias após o recebimento.'},
+  ])
+
+  const [categoryCards, setCategoryCards] = useState<CardType[]>([
+    {name: 'Masculino', img:'/zion3.jpg'},
+    {name: 'Masculino', img:'/zion3.jpg'},
+    {name: 'Masculino', img:'/zion3.jpg'},
   ])
 
   useEffect(() => {
@@ -83,16 +90,24 @@ export default function Home() {
         </section>
         <div className='px-4 space-y-20'>
           <section>
-            <h2 className="font-bold text-xl mb-4">Popular Right Now</h2>
             {/* Mobile */}
             <div className='md:hidden'>
-              <Swiper slidesPerView={1.3}>
-                {featuredItems.map((item, index) => (
-                  <SwiperSlide key={index} className="py-2 bg-none">
-                      <Card img={item.img} name={item.name} price={item.price} type='item'/>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              <Carousel array={categoryCards} title='Navegue por categorias'/>
+            </div>
+
+            
+            {/* Desktop */}
+            <div className='hidden md:flex gap-5 justify-center p-5'>
+              {categoryCards.map((item, index) => (
+                <Card img={item.img} name={item.name} type='item' key={index}/>
+              ))}
+            </div>
+          </section>
+          
+          <section>
+            {/* Mobile */}
+            <div className='md:hidden'>
+              <Carousel array={featuredItems} title='Em Alta'/>
             </div>
 
             {/* Desktop */}
