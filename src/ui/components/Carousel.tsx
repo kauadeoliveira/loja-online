@@ -9,10 +9,9 @@ type CarouselType = {
     title: string;
 }
 
-export default function Carousel({ array, title }: CarouselType) {
+export default function Carousel({ array }: CarouselType) {
     return(
         <div>
-            <h2 className="font-bold text-xl mb-4">{title}</h2>
             <Swiper slidesPerView={1.3}>
             {array.map((item, index) => (
                 <SwiperSlide key={index} className="py-2 bg-none">

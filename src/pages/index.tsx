@@ -23,6 +23,7 @@ import InfoCard from '@/ui/components/InfoCard'
 import Card from '@/ui/components/Card'
 import { CardType } from '@/types/card'
 import Carousel from '@/ui/components/Carousel'
+import Button from '@/ui/components/Button'
 
 
 // 
@@ -88,30 +89,54 @@ export default function Home() {
             <Video />
           </div>
         </section>
-        <div className='px-4 space-y-20'>
-          <section>
+        <div className='space-y-20'>
+          <section className='px-4'>
+            <h2 className="font-bold text-xl mb-4 font-roboto">Navegue por categorias</h2>
+
             {/* Mobile */}
             <div className='md:hidden'>
               <Carousel array={categoryCards} title='Navegue por categorias'/>
             </div>
 
-            
             {/* Desktop */}
-            <div className='hidden md:flex gap-5 justify-center p-5'>
+            <div className='hidden md:flex gap-5 justify-center'>
               {categoryCards.map((item, index) => (
                 <Card img={item.img} name={item.name} type='item' key={index}/>
               ))}
             </div>
           </section>
-          
+
           <section>
+            <div className='lg:hidden'>
+              <Image src="/adidasxgucci.jpg" width={1024} height={1024} alt="Tênis collab adidas x gucci"/>
+              <div className='p-3 flex flex-col gap-2'>
+                <h3 className="font-black font-roboto text-2xl text-slate-800">Gucci x Adidas</h3>
+                <div>
+                  <Button mode='dark'>Saiba mais</Button>
+                </div>
+              </div>
+            </div>
+            <div className='hidden lg:flex gap-10'>
+              <Image src="/adidasxgucci2.jpg" width={700} height={700} alt="Tênis collab adidas x gucci"/>
+              <div className="flex justify-center flex-col gap-3">
+                <h3 className="font-black font-roboto text-3xl text-slate-800">Gucci x Adidas</h3>
+                <div>
+                  <Button mode='dark'>Saiba mais</Button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className='px-4'>
+            <h2 className="font-bold text-xl mb-4 font-roboto">Em Alta</h2>
+
             {/* Mobile */}
             <div className='md:hidden'>
               <Carousel array={featuredItems} title='Em Alta'/>
             </div>
 
             {/* Desktop */}
-            <div className='hidden md:flex gap-5 justify-center p-5'>
+            <div className='hidden md:flex gap-5 justify-center'>
               {featuredItems.map((item, index) => (
                 <Card img={item.img} name={item.name} price={item.price} type='item' key={index}/>
               ))}
