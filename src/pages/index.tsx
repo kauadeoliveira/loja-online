@@ -23,7 +23,11 @@ import { InfoCardType } from '@/types/infoCard'
 import InfoCard from '@/ui/components/InfoCard'
 
 
-
+// 
+// 
+// LEMBRAR DE ARRUMAR NOMENCLATURA DE TODOS TYPES
+// 
+// 
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -64,11 +68,11 @@ export default function Home() {
       </Head>
       
       <Header />
-      <main className='mt-12 space-y-5'>
+      <main className='mt-12 space-y-20'>
         <section>
           {/* Mobile */}
           <div className="md:hidden">
-              <MainBanner img='/zion4.jpg'/>
+              <MainBanner img='/zion3.jpg'/>
           </div>
 
           {/* Desktop */}
@@ -76,14 +80,14 @@ export default function Home() {
             <Video />
           </div>
         </section>
-        <div className='px-4'>
+        <div className='px-4 space-y-20'>
           <section>
             <h2 className="font-bold text-xl mb-4">Popular Right Now</h2>
             {/* Mobile */}
             <div className='md:hidden'>
               <Swiper slidesPerView={1.3}>
                 {featuredItems.map((item, index) => (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide key={index} className="py-2 bg-none">
                       <CardItem img={item.img} name={item.name} price={item.price} />
                   </SwiperSlide>
                 ))}

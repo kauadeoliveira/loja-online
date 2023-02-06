@@ -6,8 +6,8 @@ export default function InfoCard({ icon, title, description }: InfoCardType) {
             <i className="text-6xl">
                 {icon()}
             </i>
-            <h4 className="font-bold text-lg">{title}</h4>
-            <p>{description}</p>
+            <h4 className="font-bold text-lg font-roboto">{title}</h4>
+            <p className="font-roboto">{description}</p>
       </div>
     )
 }
