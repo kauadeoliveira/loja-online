@@ -1,12 +1,12 @@
 import { ChildrenType } from "@/types/children";
 import Link from "next/link";
 
-type ButtonProps = {
+type ButtonType = {
     mode: 'dark' | 'light';
     children: ChildrenType
 }
 
-export default function Button({ mode, children }: ButtonProps) {
+export default function Button({ mode, children }: ButtonType) {
     return (
         <Link href="#" 
         className={`

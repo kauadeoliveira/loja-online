@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Button from "./Button";
 
-type MainBannerProps = {
+type MainBannerType = {
     img: string;
 }
 
-export default function MainBanner({ img }: MainBannerProps) {
+export default function MainBanner({ img }: MainBannerType) {
     return(
         <div className="bg-slate-50 text-black flex flex-col gap-5 relative">
             <Image src={img} width={1000} height={1000} alt="zion-banner" />

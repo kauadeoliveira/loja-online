@@ -8,11 +8,8 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 
 
 import Video from '@/ui/components/Video'
-import CardItem from '@/ui/components/Card'
 import { MyContext } from '@/context'
-import { formatToReal } from '@/utils/formatToReal'
 
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/pagination";
 import "swiper/css";

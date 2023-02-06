@@ -2,11 +2,11 @@ import Link from "next/link";
 
 import { FaLinkedin, FaGithub, FaGoogle } from "react-icons/fa";
 
-type MenuProps = {
+type MenuType = {
     open?: boolean;
 }
 
-export default function Menu({ open }: MenuProps) {
+export default function Menu({ open }: MenuType) {
     const socialMediaIcons:React.ReactElement<any, any>[] = [
         <FaLinkedin key="linkedin"/>, <FaGithub key="github"/>, <FaGoogle key="google"/>
     ]
