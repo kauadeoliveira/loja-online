@@ -1,11 +1,11 @@
-import { Item } from "@/types/item";
+import { CardType } from "@/types/card";
 import { formatToReal } from "@/utils/formatToReal";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineHeart } from "react-icons/hi";
 
 
-export default function CardItem({ img, name, price}: Pick<Item, 'name' | 'price' | 'img'>) {
+export default function Card({ img, name, price, type }: CardType) {
     return(
         <div 
          className="block bg-white rounded-xl shadow-inner drop-shadow-lg transition-transform duration-300 hover:scale-[1.02] w-10/12 md:w-1/3">
@@ -19,7 +19,7 @@ export default function CardItem({ img, name, price}: Pick<Item, 'name' | 'price
                     <Link href="#" className="px-3 w-full">
                         <h3>{name}</h3>
                     </Link>
-                    <button onClick={() => console.log('clicou no fav')} className="px-3 h-3">
+                    <button onClick={() => console.log('clicou no fav')} className={`${type === 'item' ? 'block' : 'hidden'} px-3 h-3`}>
                         <i>
                             <HiOutlineHeart />
                         </i>

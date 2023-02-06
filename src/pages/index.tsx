@@ -8,7 +8,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 
 
 import Video from '@/ui/components/Video'
-import CardItem from '@/ui/components/CardItem'
+import CardItem from '@/ui/components/Card'
 import { MyContext } from '@/context'
 import { formatToReal } from '@/utils/formatToReal'
 
@@ -16,11 +16,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/pagination";
 import "swiper/css";
-import { Item } from '@/types/item'
 import { ContextType } from '@/types/context'
 import Image from 'next/image'
 import { InfoCardType } from '@/types/infoCard'
 import InfoCard from '@/ui/components/InfoCard'
+import Card from '@/ui/components/Card'
+import { CardType } from '@/types/card'
 
 
 // 
@@ -37,7 +38,7 @@ export default function Home() {
   const [urlVideo, setUrlVideo] = useState<string>();
   const { openMenu }: Partial<ContextType> = useContext(MyContext);
 
-  const [featuredItems, setFeaturedItems] = useState<Item[]>([
+  const [featuredItems, setFeaturedItems] = useState<CardType[]>([
     {name: 'Air Jordan Zion 1', img: '/men.png', price: 599},
     {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999},
     {name: 'Nike Flex Runner 2', img: '/kids.png', price:250},
@@ -68,7 +69,7 @@ export default function Home() {
       </Head>
       
       <Header />
-      <main className='mt-12 space-y-20'>
+      <main className='mt-12 space-y-14'>
         <section>
           {/* Mobile */}
           <div className="md:hidden">
@@ -88,7 +89,7 @@ export default function Home() {
               <Swiper slidesPerView={1.3}>
                 {featuredItems.map((item, index) => (
                   <SwiperSlide key={index} className="py-2 bg-none">
-                      <CardItem img={item.img} name={item.name} price={item.price} />
+                      <Card img={item.img} name={item.name} price={item.price} type='item'/>
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -97,7 +98,7 @@ export default function Home() {
             {/* Desktop */}
             <div className='hidden md:flex gap-5 justify-center p-5'>
               {featuredItems.map((item, index) => (
-                <CardItem img={item.img} name={item.name} price={item.price} key={index}/>
+                <Card img={item.img} name={item.name} price={item.price} type='item' key={index}/>
               ))}
             </div>
           </section>
