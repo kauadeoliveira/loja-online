@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
-import Header from '@/ui/components/Header'
-import React, { createContext, useEffect, useState, useContext, useRef } from 'react'
-import MainBanner from "../ui/components/MainBanner"
+import Header from '@/components/Header'
+import React, { useEffect, useState, useContext } from 'react'
+import MainBanner from "../components/MainBanner"
 import { TbBox, TbTruckReturn } from "react-icons/tb";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 
 
-import Video from '@/ui/components/Video'
+import Video from '@/components/Video'
 import { MyContext } from '@/context'
 
 
@@ -16,25 +16,17 @@ import "swiper/css";
 import { ContextType } from '@/types/context'
 import Image from 'next/image'
 import { InfoCardType } from '@/types/infoCard'
-import InfoCard from '@/ui/components/InfoCard'
-import Card from '@/ui/components/Card'
+import InfoCard from '@/components/InfoCard'
+import Card from '@/components/Card'
 import { CardType } from '@/types/card'
-import Carousel from '@/ui/components/Carousel'
-import Button from '@/ui/components/Button'
+import Carousel from '@/components/Carousel'
+import Button from '@/components/Button'
+import Banner from '@/components/Banner'
 
-
-// 
-// 
-// LEMBRAR DE ARRUMAR NOMENCLATURA DE TODOS TYPES
-// 
-// 
 
 const inter = Inter({ subsets: ['latin'] })
 
-
-
 export default function Home() {
-  const [urlVideo, setUrlVideo] = useState<string>();
   const { openMenu }: Partial<ContextType> = useContext(MyContext);
 
   const [featuredItems, setFeaturedItems] = useState<CardType[]>([
@@ -104,24 +96,7 @@ export default function Home() {
           </section>
 
           <section>
-            <div className='lg:hidden'>
-              <Image src="/adidasxgucci.jpg" width={1024} height={1024} alt="Tênis collab adidas x gucci"/>
-              <div className='p-3 flex flex-col gap-2'>
-                <h3 className="font-black font-roboto text-2xl text-slate-800">Gucci x Adidas</h3>
-                <div>
-                  <Button mode='dark'>Saiba mais</Button>
-                </div>
-              </div>
-            </div>
-            <div className='hidden lg:flex gap-10'>
-              <Image src="/adidasxgucci2.jpg" width={700} height={700} alt="Tênis collab adidas x gucci"/>
-              <div className="flex justify-center flex-col gap-3">
-                <h3 className="font-black font-roboto text-3xl text-slate-800">Gucci x Adidas</h3>
-                <div>
-                  <Button mode='dark'>Saiba mais</Button>
-                </div>
-              </div>
-            </div>
+            <Banner img="/adidasxgucci2.jpg" title="Gucci x Adidas"/>
           </section>
 
           <section className='px-4'>

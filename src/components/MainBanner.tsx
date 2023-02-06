@@ -1,11 +1,10 @@
+import { BannerType } from "@/types/banner";
 import Image from "next/image";
 import Button from "./Button";
 
-type MainBannerType = {
-    img: string;
-}
 
-export default function MainBanner({ img }: MainBannerType) {
+
+export default function MainBanner({ img }: Pick<BannerType, 'img'>) {
     return(
         <div className="bg-slate-50 text-black flex flex-col gap-5 relative">
             <Image src={img} width={1000} height={1000} alt="zion-banner" />
