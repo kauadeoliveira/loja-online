@@ -2,7 +2,7 @@ import { ChildrenType } from "@/types/children";
 import Link from "next/link";
 
 type ButtonType = {
-    mode: 'dark' | 'light';
+    mode: 'dark' | 'light' | 'transparent';
     children: ChildrenType
 }
 
@@ -10,7 +10,7 @@ export default function Button({ mode, children }: ButtonType) {
     return (
         <Link href="#" 
         className={`
-        ${mode === 'dark' ? 'bg-black text-white': 'bg-white text-black'}
+        ${mode === 'dark' ? 'bg-black text-white' : (mode === 'light' ? 'bg-white text-black' : 'bg-transparent text-white')}
         inline-block py-2 px-4 rounded-md
         transition-all duration-[0.2s] ease-in font-bold
         relative overflow-hidden z-10 text-sm

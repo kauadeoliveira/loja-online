@@ -78,7 +78,37 @@ export default function Home() {
             <Video />
           </div>
         </section>
+
+
         <div className='space-y-20'>
+        <section className='px-4'>
+            <h2 className="font-bold text-xl mb-4 font-roboto">Em Alta</h2>
+
+            {/* Mobile */}
+            <div className='md:hidden'>
+              <Carousel array={featuredItems} title='Em Alta'/>
+            </div>
+
+
+            {/* Desktop */}
+            <div className='hidden md:flex gap-5 justify-center'>
+              {featuredItems.map((item, index) => (
+                <Card img={item.img} name={item.name} price={item.price} type='item' key={index}/>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <div className='flex gap-10 flex-col items-center md:flex-row md:justify-center mb-24'>
+              {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
+            </div>
+          </section>
+
+          <section>
+            <Banner img="/adidasxgucci2.jpg" title="Gucci x Adidas"/>
+          </section>
+          
+
           <section className='px-4'>
             <h2 className="font-bold text-xl mb-4 font-roboto">Navegue por categorias</h2>
 
@@ -96,30 +126,11 @@ export default function Home() {
           </section>
 
           <section>
-            <Banner img="/adidasxgucci2.jpg" title="Gucci x Adidas"/>
+            <Banner img="/asics.jpg" title="Asics Gel Lyte 3 Alley Cats"/>
           </section>
 
-          <section className='px-4'>
-            <h2 className="font-bold text-xl mb-4 font-roboto">Em Alta</h2>
 
-            {/* Mobile */}
-            <div className='md:hidden'>
-              <Carousel array={featuredItems} title='Em Alta'/>
-            </div>
 
-            {/* Desktop */}
-            <div className='hidden md:flex gap-5 justify-center'>
-              {featuredItems.map((item, index) => (
-                <Card img={item.img} name={item.name} price={item.price} type='item' key={index}/>
-              ))}
-            </div>
-          </section>
-
-          <section>
-            <div className='flex gap-10 flex-col items-center md:flex-row md:justify-center'>
-              {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
-            </div>
-          </section>
         </div>
       </main>
     </>
