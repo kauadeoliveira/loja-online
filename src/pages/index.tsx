@@ -66,8 +66,8 @@ export default function Home() {
       </Head>
       
       <Header />
-      <main className='mt-12 space-y-14'>
-        <section>
+      <main className='mt-12'>
+        <section className='h-screen'>
           {/* Mobile */}
           <div className="md:hidden">
               <MainBanner img='/zion3.jpg'/>
@@ -80,38 +80,36 @@ export default function Home() {
         </section>
 
 
-        <div className='space-y-20'>
-        <section className='px-4'>
-            <h2 className="font-bold text-xl mb-4 font-roboto">Em Alta</h2>
-
-            {/* Mobile */}
-            <div className='md:hidden'>
-              <Carousel array={featuredItems} title='Em Alta'/>
-            </div>
+        <div>
+        <section className='p-5 h-screen'>
+          {/* Mobile */}
+          <div className='md:hidden h-full'>
+            <Carousel array={featuredItems} title='Em Alta'/>
+          </div>
 
 
-            {/* Desktop */}
-            <div className='hidden md:flex gap-5 justify-center'>
-              {featuredItems.map((item, index) => (
-                <Card img={item.img} name={item.name} price={item.price} type='item' key={index}/>
-              ))}
-            </div>
-          </section>
+          {/* Desktop */}
+          <div className='hidden md:flex gap-5 justify-center'>
+            {featuredItems.map((item, index) => (
+              <Card img={item.img} name={item.name} price={item.price} type='item' key={index}/>
+            ))}
+          </div>
+        </section>
 
-          <section>
-            <div className='flex gap-10 flex-col items-center md:flex-row md:justify-center mb-24'>
+          <section className='p-5 h-screen flex justify-center items-center'>
+            <div className='flex gap-10 flex-col items-center md:flex-row md:justify-center'>
               {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
             </div>
           </section>
 
-          <section>
-            <Banner img="/adidasxgucci2.jpg" title="Gucci x Adidas"/>
+          <section className="py-5 h-screen">
+            <Banner img="/nikedrake.png" title="Air Terra x Nocta" direction='left'/>
           </section>
-          
 
-          <section className='px-4'>
-            <h2 className="font-bold text-xl mb-4 font-roboto">Navegue por categorias</h2>
-
+          <section className='py-5 h-screen'>
+            <Banner img="/adidasforum.jpg" title="Adidas Forum 84 Camp Low" direction='right'/>
+          </section>
+          <section className='p-5'>
             {/* Mobile */}
             <div className='md:hidden'>
               <Carousel array={categoryCards} title='Navegue por categorias'/>
@@ -124,11 +122,6 @@ export default function Home() {
               ))}
             </div>
           </section>
-
-          <section>
-            <Banner img="/asics.jpg" title="Asics Gel Lyte 3 Alley Cats"/>
-          </section>
-
 
 
         </div>

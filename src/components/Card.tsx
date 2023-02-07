@@ -8,7 +8,10 @@ import { HiOutlineHeart } from "react-icons/hi";
 export default function Card({ img, name, price, type }: CardType) {
     return(
         <div 
-         className="block bg-white rounded-xl shadow-inner drop-shadow-lg transition-transform duration-300 hover:scale-[1.02] w-10/12 md:w-1/3">
+         className="
+            h-full bg-white rounded-xl shadow-inner drop-shadow-lg
+            transition-transform duration-300 hover:scale-[1.02]
+         ">
             <div>
                 <Link href="#"className="flex justify-center p-3">
                     <Image priority src={img} width={288} height={288} alt={`${name} image`}/>

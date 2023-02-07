@@ -7,6 +7,7 @@ module.exports = {
         'cursive': ['Unbounded', 'cursive'],
         'roboto': ['Roboto', 'sans-serif'],
         'anton': ['Anton', 'sans-serif'],
+        'josefin': [ 'Josefin Sans', 'sans-serif']
       }
     },
   },
