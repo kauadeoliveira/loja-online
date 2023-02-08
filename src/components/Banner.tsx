@@ -20,7 +20,7 @@ export default function Banner({ img, title, direction }: MyBannerProps) {
 
         <div 
          className={`
-          h-full w-full text-white text-xl 
+          h-full w-full text-white text-xl
           absolute top-0 bottom-0 flex justify-center items-center
           md:bg-transparent md:opacity-100
           md:static md:text-black md:justify-start lg:text-3xl
