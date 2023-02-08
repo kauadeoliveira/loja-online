@@ -67,7 +67,7 @@ export default function Home() {
       
       <Header />
       <main className='mt-12'>
-        <section className='h-screen'>
+        <section>
           {/* Mobile */}
           <div className="md:hidden">
               <MainBanner img='/zion3.jpg'/>
@@ -81,9 +81,11 @@ export default function Home() {
 
 
         <div>
-        <section className='p-5 h-screen'>
+        <section className='px-5 my-2 h-screen flex flex-col justify-center gap-3'>
+          <h2 className="font-bold font-josefin text-2xl text-center md:text-3xl">Mais Vendidos</h2>
+
           {/* Mobile */}
-          <div className='md:hidden h-full'>
+          <div className='md:hidden'>
             <Carousel array={featuredItems} title='Em Alta'/>
           </div>
 
@@ -96,21 +98,23 @@ export default function Home() {
           </div>
         </section>
 
-          <section className='py-2 min-h-[80vh] flex justify-center flex-col'>
-            <h3 className="font-bold font-josefin text-2xl text-center md:text-3xl">Comprando aqui você tem direito à: </h3>
+
+          <section className='my-2 min-h-[80vh] flex justify-center flex-col gap-3'>
+            <h2 className="font-bold font-josefin text-2xl text-center md:text-3xl">Comprando aqui você tem direito à: </h2>
             <div className='flex flex-col gap-5 items-center md:flex-row w-full justify-center'>
               {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
             </div>
           </section>
 
-          <section className="h-[80vh] py-2">
+          <section className="h-[80vh] my-2">
             <Banner img={["forum-sm.png", "forum-md.png"]} title="Bad Bunny x Adidas Forum" direction='left'/>
           </section>
 
-          <section className='h-[80vh] py-2'>
+          <section className='h-[80vh] my-2'>
             <Banner img={["newbalance-sm.png", "newbalance-md.png"]} title="New Balance 9060 Sea Salt Surf" direction='right'/>
           </section>
-          <section className='p-5'>
+
+          <section className='px-5 my-2 h-screen flex flex-col justify-center gap-3'>
             {/* Mobile */}
             <div className='md:hidden'>
               <Carousel array={categoryCards} title='Navegue por categorias'/>

@@ -11,8 +11,7 @@ type CarouselType = {
 
 export default function Carousel({ array }: CarouselType) {
     return(
-        <div className="h-full flex flex-wrap">
-            <h2 className="m-auto font-bold text-2xl">Mais vendidos</h2>
+        <div className="flex flex-wrap items-center">
             <Swiper slidesPerView={1.2} spaceBetween={30} className="h-3/4">
             {array.map((item, index) => (
                 <SwiperSlide key={index} className="py-2">
