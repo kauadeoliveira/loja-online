@@ -36,7 +36,7 @@ export default function Home() {
   ])
 
   const [infoCards, setInfoCards] = useState<InfoCardType[]>([
-    {icon: TbBox, title: 'Entrega Gratis e Rapida', description:'Aproveite a entrega gratuita em todos os itens do estoque'},
+    {icon: TbBox, title: 'Entrega Gratis', description:'Aproveite a entrega gratuita em todos os itens do estoque'},
     {icon: HiOutlineShoppingBag, title: 'Retirada na loja', description:'Compre online e retire numa loja Viten mais próxima de você.'},
     {icon: TbTruckReturn, title: 'Devoluções fáceis e gratuitas', description:'Devolva os itens qualificados em até 14 dias após o recebimento.'},
   ])
@@ -96,8 +96,9 @@ export default function Home() {
           </div>
         </section>
 
-          <section className='p-5 h-screen flex justify-center items-center'>
-            <div className='flex gap-10 flex-col items-center md:flex-row md:justify-center'>
+          <section className='py-2 min-h-[80vh] flex justify-center flex-col'>
+            <h3 className="font-bold font-josefin text-2xl text-center md:text-3xl">Comprando aqui você tem direito à: </h3>
+            <div className='flex flex-col gap-5 items-center md:flex-row w-full justify-center'>
               {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
             </div>
           </section>
