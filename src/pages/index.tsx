@@ -102,12 +102,12 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="py-5 h-screen">
-            <Banner img="/nikedrake.png" title="Air Terra x Nocta" direction='left'/>
+          <section className="h-[80vh] py-2">
+            <Banner img={["forum-sm.png", "forum-md.png"]} title="Bad Bunny x Adidas Forum" direction='left'/>
           </section>
 
-          <section className='py-5 h-screen'>
-            <Banner img="/adidasforum.jpg" title="Adidas Forum 84 Camp Low" direction='right'/>
+          <section className='h-[80vh] py-2'>
+            <Banner img={["newbalance-sm.png", "newbalance-md.png"]} title="New Balance 9060 Sea Salt Surf" direction='right'/>
           </section>
           <section className='p-5'>
             {/* Mobile */}

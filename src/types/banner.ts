@@ -1,4 +1,4 @@
 export type BannerType = {
-    img: string
+    img: string | string[];
     title: string;
 }
