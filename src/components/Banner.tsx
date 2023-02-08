@@ -30,8 +30,11 @@ export default function Banner({ img, title, direction }: MyBannerProps) {
          >
           <div className={`flex flex-col gap-3 p-2 items-center`}>
             <h3 className="font-bold font-josefin">{title}</h3>
-            <div>
+            <div className="block md:hidden">
               <Button mode="light">Comprar</Button>
+            </div>
+            <div className="hidden md:block">
+              <Button mode="dark">Comprar</Button>
             </div>
           </div>
         </div>
