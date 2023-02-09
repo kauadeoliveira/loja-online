@@ -30,9 +30,9 @@ export default function Home() {
   const { openMenu }: Partial<ContextType> = useContext(MyContext);
 
   const [featuredItems, setFeaturedItems] = useState<CardType[]>([
-    {name: 'Air Jordan Zion 1', img: '/men.png', price: 599, type:'item'},
-    {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999, type:'item'},
-    {name: 'Nike Flex Runner 2', img: '/kids.png', price:250, type:'item'},
+    {title: 'Air Jordan Zion 1', img: '/men.png', price: 599, route:"#"},
+    {title: 'Adidas Ozweego', img: '/girl.jpg', price: 999, route:"#"},
+    {title: 'Nike Flex Runner 2', img: '/kids.png', price:250, route:"#"},
   ])
 
   const [infoCards, setInfoCards] = useState<InfoCardType[]>([
@@ -41,11 +41,11 @@ export default function Home() {
     {icon: TbTruckReturn, title: 'Devoluções fáceis e gratuitas', description:'Devolva os itens qualificados em até 14 dias após o recebimento.'},
   ])
 
-  const [categoryCards, setCategoryCards] = useState<CardType[]>([
-    {name: 'Masculino', img:'/zion3.jpg'},
-    {name: 'Masculino', img:'/zion3.jpg'},
-    {name: 'Masculino', img:'/zion3.jpg'},
-  ])
+  // const [categoryCards, setCategoryCards] = useState<CardType[]>([
+  //   {name: 'Masculino', img:'/zion3.jpg'},
+  //   {name: 'Masculino', img:'/zion3.jpg'},
+  //   {name: 'Masculino', img:'/zion3.jpg'},
+  // ])
 
   useEffect(() => {
     if(typeof window !== 'undefined' && openMenu){
@@ -66,7 +66,7 @@ export default function Home() {
       </Head>
       
       <Header />
-      <main className='mt-12 mb-2'>
+      <main className='mt-12 mb-3'>
         <section>
           {/* Mobile */}
           <div className="md:hidden">
@@ -79,54 +79,29 @@ export default function Home() {
           </div>
         </section>
 
-
-        <div className='my-2'>
-          <section className='px-5 my-2 flex flex-col justify-center gap-3 h-[80vh]'>
-            <h2 className="font-bold font-josefin text-2xl text-center md:text-3xl">Mais Vendidos</h2>
-
-            {/* Mobile */}
-            <div className='md:hidden'>
-              <Carousel array={featuredItems} title='Em Alta'/>
-            </div>
-
-
-            {/* Desktop */}
-            <div className='hidden md:flex gap-5 justify-center'>
-              {featuredItems.map((item, index) => (
-                <Card img={item.img} name={item.name} price={item.price} type='item' key={index}/>
-              ))}
+        <section className='flex flex-col justify-center my-4'>
+            <h3 className='text-center font-josefin font-bold text-2xl'>Destaques</h3>
+            <Carousel array={featuredItems}/>
+            <div className='m-auto'>
+              <Button mode='dark'>Ver Todos os Produtos</Button>
             </div>
           </section>
 
-          <section className="h-[80vh] my-2">
+        <div className='my-3'>
+          <section className="h-[80vh] my-3">
             <Banner img={["forum-sm.png", "forum-md.png"]} title="Bad Bunny x Adidas Forum" direction='left'/>
           </section>
 
-          <section className='h-[80vh] my-2'>
+          <section className='h-[80vh] my-3'>
             <Banner img={["newbalance-sm.png", "newbalance-md.png"]} title="New Balance 9060 Sea Salt Surf" direction='right'/>
           </section>
 
-          <section className='px-5 my-2 h-[80vh] flex flex-col justify-center gap-3'>
-            {/* Mobile */}
-            <div className='md:hidden'>
-              <Carousel array={categoryCards} title='Navegue por categorias'/>
-            </div>
-
-            {/* Desktop */}
-            <div className='hidden md:flex gap-5 justify-center'>
-              {categoryCards.map((item, index) => (
-                <Card img={item.img} name={item.name} type='item' key={index}/>
-              ))}
-            </div>
-          </section>
-
-          <section className='my-2 min-h-[80vh] flex justify-center flex-col gap-3'>
-            <h2 className="font-bold font-josefin text-2xl text-center md:text-3xl">Comprando aqui você tem direito à: </h2>
+          <section className='my-3 min-h-[80vh] flex justify-center flex-col gap-1'>
+            <h2 className="font-bold font-josefin text-2xl text-center md:text-3xl">Comprando aqui você tem direito à:</h2>
             <div className='flex flex-col gap-5 items-center md:flex-row w-full justify-center'>
               {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
             </div>
           </section>
-
         </div>
       </main>
     </>

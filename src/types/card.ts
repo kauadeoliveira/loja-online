@@ -1,7 +1,7 @@
 export type CardType = {
-    name: string;
+    title: string;
     id?: number;
     price?: number;
     img: string;
-    type?: undefined | 'item';
+    route: string;
 }
