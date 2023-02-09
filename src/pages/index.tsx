@@ -14,7 +14,6 @@ import { MyContext } from '@/context'
 import "swiper/css/pagination";
 import "swiper/css";
 import { ContextType } from '@/types/context'
-import Image from 'next/image'
 import { InfoCardType } from '@/types/infoCard'
 import InfoCard from '@/components/InfoCard'
 import Card from '@/components/Card'
@@ -41,12 +40,7 @@ export default function Home() {
     {icon: TbTruckReturn, title: 'Devoluções fáceis e gratuitas', description:'Devolva os itens qualificados em até 14 dias após o recebimento.'},
   ])
 
-  // const [categoryCards, setCategoryCards] = useState<CardType[]>([
-  //   {name: 'Masculino', img:'/zion3.jpg'},
-  //   {name: 'Masculino', img:'/zion3.jpg'},
-  //   {name: 'Masculino', img:'/zion3.jpg'},
-  // ])
-
+  // Ocultar navbar do elemento HTML quando o Menu for aberto
   useEffect(() => {
     if(typeof window !== 'undefined' && openMenu){
       window.document.documentElement.style.overflow = 'hidden'
@@ -66,11 +60,11 @@ export default function Home() {
       </Head>
       
       <Header />
-      <main className='mt-12 mb-3'>
+      <main className='mt-12'>
         <section>
           {/* Mobile */}
           <div className="md:hidden">
-              <MainBanner img='zion-mainbanner.png'/>
+            <MainBanner img='zion-mainbanner.png'/>
           </div>
 
           {/* Desktop */}
@@ -79,30 +73,37 @@ export default function Home() {
           </div>
         </section>
 
-        <section className='flex flex-col justify-center my-4'>
-            <h3 className='text-center font-josefin font-bold text-2xl'>Destaques</h3>
+        <section className='flex flex-col justify-center my-5 gap-3'>
+          <h3 className='text-center font-josefin font-bold text-2xl'>Destaques</h3>
+          <div className='block md:hidden'>
             <Carousel array={featuredItems}/>
-            <div className='m-auto'>
-              <Button mode='dark'>Ver Todos os Produtos</Button>
-            </div>
-          </section>
+          </div>
+          <div className='hidden md:flex justify-center gap-5'>
+            {featuredItems.map((item, index) => {
+              return(
+                <Card img={item.img} route={item.route} title={item.title} price={item.price} key={index}/>
+              )
+            })}
+          </div>
+          <div className='m-auto'>
+            <Button mode='dark'>Ver Todos os Produtos</Button>
+          </div>
+        </section>
 
-        <div className='my-3'>
-          <section className="h-[80vh] my-3">
-            <Banner img={["forum-sm.png", "forum-md.png"]} title="Bad Bunny x Adidas Forum" direction='left'/>
-          </section>
+        <section className="h-[80vh] my-5">
+          <Banner img={["forum-sm.png", "forum-md.png"]} title="Bad Bunny x Adidas Forum" direction='left'/>
+        </section>
 
-          <section className='h-[80vh] my-3'>
-            <Banner img={["newbalance-sm.png", "newbalance-md.png"]} title="New Balance 9060 Sea Salt Surf" direction='right'/>
-          </section>
+        <section className='h-[80vh] my-5'>
+          <Banner img={["newbalance-sm.png", "newbalance-md.png"]} title="New Balance 9060 Sea Salt Surf" direction='right'/>
+        </section>
 
-          <section className='my-3 min-h-[80vh] flex justify-center flex-col gap-1'>
-            <h2 className="font-bold font-josefin text-2xl text-center md:text-3xl">Comprando aqui você tem direito à:</h2>
-            <div className='flex flex-col gap-5 items-center md:flex-row w-full justify-center'>
-              {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
-            </div>
-          </section>
-        </div>
+        <section className='my-5 min-h-[80vh] flex justify-center flex-col gap-3'>
+          <h3 className="font-bold font-josefin text-2xl text-center md:text-3xl">Ao comprar você tem direito à:</h3>
+          <div className='flex flex-col gap-5 items-center md:flex-row w-full justify-center'>
+            {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
+          </div>
+        </section>
       </main>
     </>
   )
