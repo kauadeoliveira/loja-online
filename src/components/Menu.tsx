@@ -17,22 +17,32 @@ export default function Menu({ open }: MenuType) {
                 <ul className="flex flex-col py-2 font-roboto">
                     <li className="h-[30vh]">
                         <Link href="#" className="relative flex justify-center h-full items-center px-4">
-                            <span className="text-base text-slate-800 flex justify-center before:content-[''] before:block before:h-px before:bg-stone-400 before:absolute before:w-11/12 before:bottom-0 font-bold after:content-[''] after:block after:h-px after:bg-stone-400 after:absolute after:w-11/12 after:top-0 ">
-                                Men
+                            <span className="
+                                text-base text-slate-800 flex justify-center before:content-[''] before:block before:h-px
+                                before:bg-stone-400 before:absolute before:w-11/12 before:bottom-0 font-bold md:text-2xl
+                                after:content-[''] after:block after:h-px after:bg-stone-400 after:absolute after:w-11/12 after:top-0"
+                            >
+                                Masculino
                             </span>
                         </Link>
                     </li>
                     <li className="h-[30vh]">
                         <Link href="#" className="relative flex justify-center h-full items-center px-4">
-                            <span className="text-base text-slate-800 flex justify-center before:content-[''] before:block before:h-px before:bg-stone-400 before:absolute before:w-11/12 before:bottom-0 font-bold">
-                                Woman
+                            <span className="
+                                text-base text-slate-800 flex justify-center before:content-[''] before:block before:h-px
+                                before:bg-stone-400 before:absolute before:w-11/12 before:bottom-0 font-bold md:text-2xl"
+                            >
+                                Feminino
                             </span>
                         </Link>
                     </li>
                     <li className="h-[30vh]">
                         <Link href="#" className="relative flex justify-center h-full items-center px-4">
-                            <span className="text-base text-slate-800 flex justify-center before:content-[''] before:block before:h-px before:bg-stone-400 before:absolute before:w-11/12 before:bottom-0 font-bold">
-                                Kids
+                            <span className="
+                                text-base text-slate-800 flex justify-center before:content-[''] before:block before:h-px
+                                before:bg-stone-400 before:absolute before:w-11/12 before:bottom-0 font-bold md:text-2xl"
+                            >
+                                Infantil
                             </span>
                         </Link>
                     </li>
