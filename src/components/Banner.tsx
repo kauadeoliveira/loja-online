@@ -30,7 +30,7 @@ export default function Banner({ img, title, direction, route }: MyBannerProps) 
           `}
          >
           <div className={`flex flex-col gap-3 p-2 items-center`}>
-            <h3 className="font-bold font-josefin">{title}</h3>
+            <h3 className="font-bold font-josefin text-2xl">{title}</h3>
             <div className="block md:hidden">
               <Button mode="light">
                 <Link href={route}>

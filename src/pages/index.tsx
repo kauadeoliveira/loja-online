@@ -2,7 +2,6 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Header from '@/components/Header'
 import React, { useEffect, useState, useContext } from 'react'
-import MainBanner from "../components/MainBanner"
 import { TbBox, TbTruckReturn } from "react-icons/tb";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 
@@ -64,7 +63,8 @@ export default function Home() {
         <section>
           {/* Mobile */}
           <div className="md:hidden">
-            <MainBanner img='zion-mainbanner.png' title='Air Jordan Zion 1' route='#'/>
+            {/* <MainBanner img='zion-mainbanner.png' title='Air Jordan Zion 1' route='#'/> */}
+            <Banner img={["zion-mainbanner.png", "newbalance-md.png"]} title="New Balance 9060 Sea Salt Surf" direction='right' route='#'/>
           </div>
 
           {/* Desktop */}
