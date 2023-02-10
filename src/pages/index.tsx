@@ -31,6 +31,9 @@ export default function Home() {
     {title: 'Air Jordan Zion 1', img: '/men.png', price: 599, route:"#"},
     {title: 'Adidas Ozweego', img: '/girl.jpg', price: 999, route:"#"},
     {title: 'Nike Flex Runner 2', img: '/kids.png', price:250, route:"#"},
+    {title: 'Air Jordan Zion 1', img: '/men.png', price: 599, route:"#"},
+    {title: 'Adidas Ozweego', img: '/girl.jpg', price: 999, route:"#"},
+    {title: 'Nike Flex Runner 2', img: '/kids.png', price:250, route:"#"},
   ])
 
   const [infoCards, setInfoCards] = useState<InfoCardType[]>([
@@ -63,8 +66,7 @@ export default function Home() {
         <section>
           {/* Mobile */}
           <div className="md:hidden">
-            {/* <MainBanner img='zion-mainbanner.png' title='Air Jordan Zion 1' route='#'/> */}
-            <Banner img={["zion-mainbanner.png", "newbalance-md.png"]} title="New Balance 9060 Sea Salt Surf" direction='right' route='#'/>
+            <Banner img="zion-mainbanner.png" title="New Balance 9060 Sea Salt Surf" direction='right' route='#'/>
           </div>
 
           {/* Desktop */}
@@ -97,12 +99,9 @@ export default function Home() {
           <div className='block md:hidden'>
             <Carousel array={featuredItems}/>
           </div>
-          <div className='hidden md:flex justify-center gap-5'>
-            {featuredItems.map((item, index) => {
-              return(
-                <Card img={item.img} route={item.route} title={item.title} price={item.price} key={index}/>
-              )
-            })}
+          <div className='hidden md:block justify-center gap-5'>
+            <Carousel array={featuredItems}/>
+
           </div>
           <div className='m-auto'>
             <Button mode='dark'>

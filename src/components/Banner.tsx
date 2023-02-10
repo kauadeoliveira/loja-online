@@ -13,10 +13,16 @@ export default function Banner({ img, title, direction, route }: MyBannerProps) 
         {/* Mobile */}
 
         <div className="h-full w-full brightness-50 md:brightness-100">
-          <picture>
-            <source srcSet={`/${img[1]}`} media="(min-width:600px)"/>
-            <img src={`/${img[0]}`} className="w-full h-full" />
-          </picture>
+          {
+            typeof img == "string" ? (
+              <img src={`/${img}`} className="w-full h-full" />
+            ):(
+              <picture>
+                <source srcSet={`/${img[1]}`} media="(min-width:600px)"/>
+                <img src={`/${img[0]}`} className="w-full h-full" />
+            </picture>
+            )
+          }
         </div>
 
         <div 
