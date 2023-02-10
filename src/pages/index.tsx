@@ -7,7 +7,6 @@ import { TbBox, TbTruckReturn } from "react-icons/tb";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 
 
-import Video from '@/components/Video'
 import { MyContext } from '@/context'
 
 
@@ -21,6 +20,7 @@ import { CardType } from '@/types/card'
 import Carousel from '@/components/Carousel'
 import Button from '@/components/Button'
 import Banner from '@/components/Banner'
+import Link from 'next/link'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -64,12 +64,31 @@ export default function Home() {
         <section>
           {/* Mobile */}
           <div className="md:hidden">
-            <MainBanner img='zion-mainbanner.png'/>
+            <MainBanner img='zion-mainbanner.png' title='Air Jordan Zion 1' route='#'/>
           </div>
 
           {/* Desktop */}
-          <div className="hidden md:block">
-            <Video />
+          <div className="relative hidden md:block">
+            <video src="/zion.mp4" muted autoPlay loop className="brightness-50">
+              Não foi possivel reproduzir o video no seu Navegador.
+            </video>
+            <div className="absolute top-0 bottom-0 w-full flex items-center">
+              <div className="flex flex-col gap-3 px-5 text-white">
+                <h3 className="font-bold font-josefin text-6xl">
+                  Jordan Zion 1
+                </h3>
+                <div className="flex gap-3">
+                    <Button mode="light">
+                      <Link href="#">
+                        Comprar
+                      </Link>
+                    </Button>
+                  <Button mode="dark">
+                      Assistir Trailer Completo
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -86,20 +105,24 @@ export default function Home() {
             })}
           </div>
           <div className='m-auto'>
-            <Button mode='dark'>Ver Todos os Produtos</Button>
+            <Button mode='dark'>
+              <Link href="#">
+                Ver Todos os Produtos
+              </Link>
+            </Button>
           </div>
         </section>
 
         <section className="h-[80vh] my-5">
-          <Banner img={["forum-sm.png", "forum-md.png"]} title="Bad Bunny x Adidas Forum" direction='left'/>
+          <Banner img={["forum-sm.png", "forum-md.png"]} title="Bad Bunny x Adidas Forum" direction='left' route='#'/>
         </section>
 
         <section className='h-[80vh] my-5'>
-          <Banner img={["newbalance-sm.png", "newbalance-md.png"]} title="New Balance 9060 Sea Salt Surf" direction='right'/>
+          <Banner img={["newbalance-sm.png", "newbalance-md.png"]} title="New Balance 9060 Sea Salt Surf" direction='right' route='#'/>
         </section>
 
         <section className='my-5 min-h-[80vh] flex justify-center flex-col gap-3'>
-          <h3 className="font-bold font-josefin text-2xl text-center md:text-3xl">Ao comprar você tem direito à:</h3>
+          <h3 className="font-bold font-josefin text-2xl text-center md:text-3xl">Comprando aqui você tem direito à:</h3>
           <div className='flex flex-col gap-5 items-center md:flex-row w-full justify-center'>
             {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
           </div>

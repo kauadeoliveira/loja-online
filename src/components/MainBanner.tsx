@@ -4,7 +4,7 @@ import Button from "./Button";
 
 
 
-export default function MainBanner({ img }: Pick<BannerType, "img">) {
+export default function MainBanner({ img, title, route }: BannerType) {
     return(
         <div className="relative h-full w-full">
             <div className="h-full w-full brightness-50">
@@ -17,9 +17,9 @@ export default function MainBanner({ img }: Pick<BannerType, "img">) {
                 w-full h-full flex justify-center items-center"
              >
                 <div className="flex flex-col items-center">
-                    <h3 className="font-bold font-josefin text-4xl">Air Jordan Zion 1</h3>
+                    <h3 className="font-bold font-josefin text-4xl">{title}</h3>
                     <div>
-                        <Button mode="light">Comprar</Button>
+                        <Button mode="light" route={route}>Comprar</Button>
                     </div>
                 </div>
             </div>

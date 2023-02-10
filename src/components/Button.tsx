@@ -8,12 +8,12 @@ type ButtonType = {
 
 export default function Button({ mode, children }: ButtonType) {
     return (
-        <Link href="#" 
+        <div
         className={`
         ${mode === 'dark' ? 'bg-black text-white' : (mode === 'light' ? 'bg-white text-black' : 'bg-transparent text-white')}
         inline-block py-2 px-4 rounded-md
         transition-all duration-[0.2s] ease-in font-bold
-        relative overflow-hidden z-10 text-sm
+        relative overflow-hidden z-10 text-sm cursor-pointer
 
         before:content-[''] before:absolute before:left-1/2 before:translate-x-[-50%]
         before:scale-y-100 before:scale-x-125 before:top-full before:w-[140%] before:h-[180%]
@@ -32,6 +32,6 @@ export default function Button({ mode, children }: ButtonType) {
         hover:after:scale-y-[1.3] hover:after:scale-x-[0.8]
         `}>
             {children}
-        </Link>
+        </div>
     )
 }

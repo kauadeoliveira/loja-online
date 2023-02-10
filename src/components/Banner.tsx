@@ -1,12 +1,13 @@
 import { BannerType } from "@/types/banner";
 import Image from "next/image";
+import Link from "next/link";
 import Button from "./Button";
 
 interface MyBannerProps extends BannerType {
   direction: 'left' | 'right';
 }
 
-export default function Banner({ img, title, direction }: MyBannerProps) {
+export default function Banner({ img, title, direction, route }: MyBannerProps) {
     return(
       <div className="h-full w-full relative md:grid md:gap-3 md:grid-cols-2 md:grid-rows-1 md:p-2">
         {/* Mobile */}
@@ -31,10 +32,18 @@ export default function Banner({ img, title, direction }: MyBannerProps) {
           <div className={`flex flex-col gap-3 p-2 items-center`}>
             <h3 className="font-bold font-josefin">{title}</h3>
             <div className="block md:hidden">
-              <Button mode="light">Comprar</Button>
+              <Button mode="light">
+                <Link href={route}>
+                  Comprar
+                </Link>
+              </Button>
             </div>
             <div className="hidden md:block">
-              <Button mode="dark">Comprar</Button>
+              <Button mode="dark">
+                <Link href={route}>
+                  Comprar
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
