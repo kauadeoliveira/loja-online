@@ -38,9 +38,9 @@ export default function Home() {
   ])
 
   const [infoCards, setInfoCards] = useState<InfoCardType[]>([
-    {icon: TbBox, title: 'Entrega Gratis', description:'Aproveite a entrega gratuita em todos os itens do estoque'},
-    {icon: HiOutlineShoppingBag, title: 'Retirada na loja', description:'Compre online e retire numa loja Viten mais próxima de você.'},
-    {icon: TbTruckReturn, title: 'Devoluções fáceis e gratuitas', description:'Devolva os itens qualificados em até 14 dias após o recebimento.'},
+    {icon: <TbBox />, title: 'Entrega Gratis', description:'Aproveite a entrega gratuita em todos os itens do estoque'},
+    {icon: <HiOutlineShoppingBag />, title: 'Retirada na loja', description:'Compre online e retire numa loja Viten mais próxima de você.'},
+    {icon: <TbTruckReturn />, title: 'Devoluções fáceis e gratuitas', description:'Devolva os itens qualificados em até 14 dias após o recebimento.'},
   ])
 
   // Ocultar navbar do elemento HTML quando o Menu for aberto

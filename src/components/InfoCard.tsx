@@ -9,7 +9,7 @@ export default function InfoCard({ icon, title, description }: InfoCardType) {
             lg:w-80 lg:h-72"
         >
             <i className="text-6xl lg:text-8xl">
-                {icon()}
+                {icon}
             </i>
             <div>
                 <h4 className="font-bold text-lg font-josefin lg:text-xl">{title}</h4>
