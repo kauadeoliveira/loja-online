@@ -1,5 +1,6 @@
 import { SocialMediaType } from "@/types/socialMedia";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { FaGithub, FaGoogle, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { HiChevronUp } from "react-icons/hi";
 
@@ -11,9 +12,24 @@ export default function Footer() {
         {icon: <FaGoogle />, url: "mailto:kauaoliveira.dev@gmail.com"},
         {icon: <FaTwitter />, url: "twitter.com/kauaolv_"},
     ]
+
+    const [scrollToTop, setScrollToTop] = useState(false);
+
+    useEffect(() => {
+        if(scrollToTop){
+            window.scrollTo({ 
+                top:0,
+                behavior: "smooth"
+            })
+            setScrollToTop(false)
+        }
+    }, [scrollToTop])
+
+    const handleScrollToTop = () => setScrollToTop(true)
+
     return(
-        <footer className="flex flex-col gap-2 bg-black text-white">
-            <button className="flex w-full font-josefin items-center justify-center py-2">
+        <footer className="flex flex-col bg-black text-white">
+            <button className="flex w-full font-josefin items-center justify-center py-2" onClick={handleScrollToTop}>
                 <i className="text-xl"><HiChevronUp /></i>
                 <p>Voltar ao topo</p>
             </button>
