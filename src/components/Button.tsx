@@ -8,7 +8,7 @@ type ButtonType = {
 
 export default function Button({ mode, children }: ButtonType) {
     return (
-        <div
+        <button
         className={`
         ${mode === 'dark' ? 'bg-black text-white' : (mode === 'light' ? 'bg-white text-black' : 'bg-transparent text-white')}
         inline-block py-2 px-4 rounded-md
@@ -32,6 +32,6 @@ export default function Button({ mode, children }: ButtonType) {
         hover:after:scale-y-[1.3] hover:after:scale-x-[0.8]
         `}>
             {children}
-        </div>
+        </button>
     )
 }

@@ -20,6 +20,7 @@ import Carousel from '@/components/Carousel'
 import Button from '@/components/Button'
 import Banner from '@/components/Banner'
 import Link from 'next/link'
+import Footer from '@/components/Footer';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -62,7 +63,7 @@ export default function Home() {
       </Head>
       
       <Header />
-      <main className='mt-12'>
+      <main className='mt-12 mb-20'>
         <section>
           {/* Mobile */}
           <div className="md:hidden">
@@ -121,12 +122,13 @@ export default function Home() {
         </section>
 
         <section className='my-5 min-h-[80vh] flex justify-center flex-col gap-3'>
-          <h3 className="font-bold font-josefin text-2xl text-center md:text-3xl">Comprando aqui você tem direito à:</h3>
+          <h3 className="font-bold font-josefin text-2xl text-center md:text-3xl">Ao comprar você tem direito à:</h3>
           <div className='flex flex-col gap-5 items-center md:flex-row w-full justify-center'>
             {infoCards.map((card, index) => <InfoCard key={index} title={card.title} description={card.description} icon={card.icon} />)}
           </div>
         </section>
       </main>
+      <Footer />
     </>
   )
 }

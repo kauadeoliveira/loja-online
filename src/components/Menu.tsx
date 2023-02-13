@@ -1,15 +1,20 @@
+import { SocialMediaType } from "@/types/socialMedia";
 import Link from "next/link";
 
-import { FaLinkedin, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaGoogle, FaTwitter, FaInstagram } from "react-icons/fa";
 
 type MenuType = {
     open?: boolean;
 }
 
 export default function Menu({ open }: MenuType) {
-    const socialMediaIcons:React.ReactElement<any, any>[] = [
-        <FaLinkedin key="linkedin"/>, <FaGithub key="github"/>, <FaGoogle key="google"/>
+    const socials: SocialMediaType[] = [
+        {icon: <FaLinkedin />, url: "linkedin.com/in/kauadeoliveira/"},
+        {icon: <FaGithub />, url: "github.com/kauadeoliveira"},
+        {icon: <FaGoogle />, url: "mailto:kauaoliveira.dev@gmail.com"},
+        {icon: <FaTwitter />, url: "twitter.com/kauaolv_"},
     ]
+
 
     return(
         <div className={`${open ? 'max-h-[115vh]' : 'max-h-0'} transition-all duration-500`}>
@@ -50,11 +55,11 @@ export default function Menu({ open }: MenuType) {
             </nav>
             <div className="text-center h-[10vh] mt-9">
                 <ul className="flex space-x-3 justify-center text-xl">
-                    {socialMediaIcons.map(icon => (
-                        <li key={icon.key}>
-                            <Link href="#" className="text-slate-400 hover:text-slate-800 ease-in duration-100">
+                    {socials.map((social, index) => (
+                        <li key={index}>
+                            <Link href={social.url} className="text-slate-400 hover:text-slate-800 ease-in duration-100" target="_blank">
                                 <i>
-                                    {icon}
+                                    {social.icon}
                                 </i>
                             </Link>
                         </li>

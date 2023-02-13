@@ -13,7 +13,7 @@ export default function Carousel({ array }: CarouselType) {
     return(
         <div>
             <div className="flex flex-wrap items-center p-3 md:hidden">
-                <Swiper slidesPerView={1.2}>
+                <Swiper slidesPerView={1.1}>
                 {array.map((item, index) => (
                     <SwiperSlide key={index} className="py-2">
                         <Card img={item.img} title={item.title} price={item.price} route={item.route}/>
