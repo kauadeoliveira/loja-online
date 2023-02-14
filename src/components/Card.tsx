@@ -1,8 +1,5 @@
 import { CardType } from "@/types/card";
-import { formatToReal } from "@/utils/formatToReal";
-import Image from "next/image";
 import Link from "next/link";
-import { HiOutlineHeart } from "react-icons/hi";
 
 
 export default function Card({ img, title, price, route }: CardType) {

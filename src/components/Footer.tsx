@@ -1,7 +1,7 @@
 import { SocialMediaType } from "@/types/socialMedia";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaGithub, FaGoogle, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaGoogle, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { HiChevronUp } from "react-icons/hi";
 
 
@@ -25,7 +25,7 @@ export default function Footer() {
         }
     }, [scrollToTop])
 
-    const handleScrollToTop = () => setScrollToTop(true)
+    const handleScrollToTop = () => setScrollToTop(true);
 
     return(
         <footer className="flex flex-col bg-black text-white">

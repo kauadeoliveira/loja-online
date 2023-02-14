@@ -15,11 +15,11 @@ export default function Banner({ img, title, direction, route }: MyBannerProps) 
         <div className="h-full w-full brightness-50 md:brightness-100">
           {
             typeof img == "string" ? (
-              <img src={`/${img}`} className="w-full h-full" />
+              <img src={`/${img}`} className="w-full h-full" alt={title} />
             ):(
               <picture>
-                <source srcSet={`/${img[1]}`} media="(min-width:600px)"/>
-                <img src={`/${img[0]}`} className="w-full h-full" />
+                <source srcSet={`/${img[1]}`} media="(min-width:600px)" />
+                <img src={`/${img[0]}`} className="w-full h-full" alt={title} />
             </picture>
             )
           }
@@ -32,9 +32,8 @@ export default function Banner({ img, title, direction, route }: MyBannerProps) 
           md:bg-transparent md:opacity-100
           md:static md:text-black md:justify-start lg:text-3xl
           ${direction === 'left' ? ('md:col-start-2 md:col-end-2 md:row-start-1') 
-          : ('md:col-start-1 md:col-end-1 row-start-1 md:justify-end')}
-          `}
-         >
+          : ('md:col-start-1 md:col-end-1 row-start-1 md:justify-end')}`}
+        >
           <div className={`flex flex-col gap-3 p-2 items-center`}>
             <h3 className="font-bold font-josefin text-2xl">{title}</h3>
             <div className="block md:hidden">
