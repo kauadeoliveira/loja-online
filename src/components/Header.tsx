@@ -6,16 +6,17 @@ import { MyContext } from "@/context";
 import { ContextType } from "@/types/context";
 import Link from "next/link";
 import Search from "./Search";
+import { CategoryType } from "@/types/category";
 
 
 export default function Header() {
     const { handleOpenSearch, handleOpenMenu, openMenu }: Partial<ContextType> = useContext(MyContext);
 
-    const categories = [
-        {categoryName: 'Masculino', route: '#'},
-        {categoryName: 'Feminino', route: '#'},
-        {categoryName: 'Infantil', route: '#'},
-        {categoryName: 'Contato', route: '#'},
+    const categories: CategoryType[] = [
+        {name: 'Masculino', route: '#'},
+        {name: 'Feminino', route: '#'},
+        {name: 'Infantil', route: '#'},
+        {name: 'Contato', route: '#'},
     ]
 
     return(
@@ -44,7 +45,7 @@ export default function Header() {
                             hover:text-black"
                         >
                             <Link href={category.route}>
-                                {category.categoryName}
+                                {category.name}
                             </Link>
                         </li>
                     ))}
@@ -68,8 +69,8 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
-            <Menu />
             <Search />
+            <Menu />
         </header>
     )
 }

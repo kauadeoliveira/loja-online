@@ -1,10 +1,12 @@
 import { MyContext } from "@/context";
+import { CategoryType } from "@/types/category";
 import { ContextType } from "@/types/context";
 import { SocialMediaType } from "@/types/socialMedia";
 import Link from "next/link";
 import { useContext } from "react";
 
-import { FaLinkedin, FaGithub, FaGoogle, FaTwitter, FaInstagram } from "react-icons/fa";
+import { HiOutlineShoppingBag, HiOutlineHeart, HiOutlineX, HiOutlineMail } from "react-icons/hi";
+
 
 type MenuType = {
     open?: boolean;
@@ -14,25 +16,40 @@ type MenuType = {
 export default function Menu() {
     const { handleOpenMenu, openMenu }: Partial<ContextType> = useContext(MyContext);
 
-    const socials: SocialMediaType[] = [
-        {icon: <FaLinkedin />, url: "linkedin.com/in/kauadeoliveira/"},
-        {icon: <FaGithub />, url: "github.com/kauadeoliveira"},
-        {icon: <FaGoogle />, url: "mailto:kauaoliveira.dev@gmail.com"},
-        {icon: <FaTwitter />, url: "twitter.com/kauaolv_"},
+    const categories: CategoryType[] = [
+        {name: 'Masculino', route: '#'},
+        {name: 'Feminino', route: '#'},
+        {name: 'Infantil', route: '#'},
+        {name: 'Carrinho', route: '#'},
+        {name: 'Lista de desejos', route: '#'},
+        {name: 'Mande um email', route: '#'},
     ]
 
     return(
         <nav className={`
-        bg-red-300 fixed top-0 left-0 h-screen w-full transition-transform duration-1000 md:hidden
-        ${openMenu ? 'translate-y-[none]' : 'translate-y-[-100vh]'}
-        `}
+         bg-white absolute top-0 left-0 h-screen w-full transition-transform duration-500 
+         md:hidden ${openMenu ? 'translate-y-[none]' : 'translate-y-[-100vh]'}`}
         >
-            <ul>
-                <button onClick={handleOpenMenu}>x</button>
-                <li>a</li>
-                <li>b</li>
-                <li>c</li>
-            </ul>
+            <div className="flex items-center px-5 py-3 justify-end">
+                <button className="opacity-60 text-2xl" onClick={handleOpenMenu}>
+                    <i>
+                        <HiOutlineX />
+                    </i>
+                </button>
+            </div>
+            <div className="px-5 text-2xl font-roboto font-bold">
+                <ul className="flex flex-col gap-4 uppercase">
+                    {
+                        categories.map((category, index) => (
+                            <li key={index}>
+                                <Link href={category.route}>
+                                    {category.name}
+                                </Link>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
         </nav>
     )
 }

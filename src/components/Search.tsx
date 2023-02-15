@@ -1,6 +1,8 @@
 import { MyContext } from "@/context"
 import { ContextType } from "@/types/context"
 import { useContext, useEffect } from "react"
+import { HiX } from "react-icons/hi";
+
 
 export default function Search() {
     const { openSearch, handleOpenSearch }:Partial<ContextType>  = useContext(MyContext)
