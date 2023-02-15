@@ -1,7 +1,8 @@
 import { MyContext } from "@/context"
 import { ContextType } from "@/types/context"
 import { useContext, useEffect } from "react"
-import { HiX } from "react-icons/hi";
+import { HiOutlineX } from "react-icons/hi";
+import SearchBar from "./SearchBar";
 
 
 export default function Search() {
@@ -10,16 +11,21 @@ export default function Search() {
     useEffect(() => console.log(openSearch), [openSearch])
 
     return (
-        <nav className={`
-            flex w-full h-screen bg-yellow-500 fixed top-0 left-0 duration-1000 transition-transform
-            ${openSearch ? 'translate-y-[none]' : 'translate-y-[-100vh]'}
-        `}>
-            <ul>
-                <button onClick={handleOpenSearch}>x</button>
-                <li>a</li>
-                <li>b</li>
-                <li>c</li>
-            </ul>
-        </nav>
+        <div className={
+            `absolute top-0 w-full h-screen left-0 backdrop-blur-lg backdrop-blur-sm flex-col transition-transform duration-500
+            ${openSearch ? 'transform-none' : 'translate-y-[-100vh]'}
+            `
+        }>
+            <div className="w-full h-1/3 bg-white p-2">
+                <div className="flex justify-end p-5">
+                    <button onClick={handleOpenSearch}>
+                        <HiOutlineX />
+                    </button>
+                </div>
+                <div className="flex">
+                    <SearchBar />
+                </div>
+            </div>
+        </div>
     )
 }
