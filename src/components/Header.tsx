@@ -19,19 +19,18 @@ export default function Header() {
 
     return(
         <header className="
-         bg-white flex w-full py-2 px-5 items-center justify-between border-b
-         fixed top-0 z-20 shadow-sm"
+            bg-white flex w-full py-2 px-5 items-center justify-between border-b
+            fixed top-0 z-20 shadow-sm"
         >
             {/* Menu Button and Logo */}
             <div className="flex gap-3">
-                <button className="text-2xl md:hidden">
+                <button className="text-2xl md:hidden" onClick={handleOpenMenu}>
                     <i>
                         <HiMenu />
                     </i>
                 </button>
                 <Logo />
             </div>
-
             {/* Navigation */}
             <nav className="flex justify-between text-xl items-center md:text-lg md:w-2/3 font-semibold">
                 {/* Categories */}
@@ -49,7 +48,6 @@ export default function Header() {
                         </li>
                     ))}
                 </ul>
-
                 {/* Others Buttons */}
                 <ul className="flex gap-3">
                     <li>
@@ -69,6 +67,7 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
+            <Menu />
         </header>
     )
 }
