@@ -5,10 +5,11 @@ import Menu from "./Menu";
 import { MyContext } from "@/context";
 import { ContextType } from "@/types/context";
 import Link from "next/link";
+import Search from "./Search";
 
 
 export default function Header() {
-    const { handleOpenMenu, openMenu }: Partial<ContextType> = useContext(MyContext);
+    const { handleOpenSearch, handleOpenMenu, openMenu }: Partial<ContextType> = useContext(MyContext);
 
     const categories = [
         {categoryName: 'Masculino', route: '#'},
@@ -61,13 +62,14 @@ export default function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="#">
+                        <button onClick={handleOpenSearch}>
                             <HiSearch />
-                        </Link>
+                        </button>
                     </li>
                 </ul>
             </nav>
             <Menu />
+            <Search />
         </header>
     )
 }

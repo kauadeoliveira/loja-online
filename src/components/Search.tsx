@@ -1,5 +1,23 @@
+import { MyContext } from "@/context"
+import { ContextType } from "@/types/context"
+import { useContext, useEffect } from "react"
+
 export default function Search() {
+    const { openSearch, handleOpenSearch }:Partial<ContextType>  = useContext(MyContext)
+
+    useEffect(() => console.log(openSearch), [openSearch])
+
     return (
-        <h1>Search</h1>
+        <nav className={`
+            flex w-full h-screen bg-yellow-500 fixed top-0 left-0 duration-1000 transition-transform
+            ${openSearch ? 'translate-y-[none]' : 'translate-y-[-100vh]'}
+        `}>
+            <ul>
+                <button onClick={handleOpenSearch}>x</button>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+            </ul>
+        </nav>
     )
 }

@@ -23,7 +23,7 @@ export default function Menu() {
 
     return(
         <nav className={`
-        bg-red-300 fixed top-0 left-0 h-screen w-full transition-all duration-1000 md:hidden
+        bg-red-300 fixed top-0 left-0 h-screen w-full transition-transform duration-1000 md:hidden
         ${openMenu ? 'translate-y-[none]' : 'translate-y-[-100vh]'}
         `}
         >
