@@ -12,18 +12,20 @@ export default function Search() {
 
     return (
         <div className={
-            `absolute top-0 w-full h-screen left-0 backdrop-blur-lg backdrop-blur-sm flex-col transition-transform duration-500
+            `absolute top-0 w-full h-screen left-0 backdrop-blur-sm flex-col transition-transform duration-500
             ${openSearch ? 'transform-none' : 'translate-y-[-100vh]'}
             `
         }>
-            <div className="w-full h-1/3 bg-white p-2">
-                <div className="flex justify-end p-5">
-                    <button onClick={handleOpenSearch}>
+            <div className="w-full bg-white p-2">
+                <div className="flex justify-end">
+                    <button onClick={handleOpenSearch} className="text-2xl">
                         <HiOutlineX />
                     </button>
                 </div>
-                <div className="flex">
-                    <SearchBar />
+                <div className="p-5">
+                    <div className="flex justify-center">
+                        <SearchBar />
+                    </div>
                 </div>
             </div>
         </div>
