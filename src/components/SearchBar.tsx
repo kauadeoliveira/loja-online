@@ -13,7 +13,7 @@ export default function SearchBar() {
     }
     
     const handleInputValue = () => searchInputRef.current?.value != '' ? setHasInputValue(true) : setHasInputValue(false);
-
+    
 
     return(
         <div className="flex items-center w-full p-1 text-2xl">

@@ -1,7 +1,8 @@
-export type CardType = {
-    title: string;
-    id?: number;
-    price?: number;
-    img: string;
-    route: string;
+export type ItemType = {
+    name: string;
+    price: number;
+    brand: string;
+    sizes: number[] | number;
+    colors: string[] | string;
+    url: string;
 }

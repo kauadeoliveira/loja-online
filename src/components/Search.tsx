@@ -16,7 +16,7 @@ export default function Search() {
             ${openSearch ? 'transform-none' : 'translate-y-[-100vh]'}
             `
         }>
-            <div className="w-full bg-white p-2">
+            <div className="w-full bg-white p-2 h-screen md:h-1/3">
                 <div className="flex justify-end">
                     <button onClick={handleOpenSearch} className="text-2xl">
                         <HiOutlineX />
