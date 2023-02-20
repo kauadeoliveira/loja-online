@@ -14,13 +14,12 @@ import "swiper/css";
 import { ContextType } from '@/types/context'
 import { InfoCardType } from '@/types/infoCard'
 import InfoCard from '@/components/InfoCard'
-import Card from '@/components/Card'
-import { CardType } from '@/types/card'
 import Carousel from '@/components/Carousel'
 import Button from '@/components/Button'
 import Banner from '@/components/Banner'
 import Link from 'next/link'
 import Footer from '@/components/Footer';
+import { CardType } from '@/types/card';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -29,12 +28,12 @@ export default function Home() {
   const { openMenu }: Partial<ContextType> = useContext(MyContext);
 
   const [featuredItems, setFeaturedItems] = useState<CardType[]>([
-    {title: 'Air Jordan Zion 1', img: '/men.png', price: 599, route:"#"},
-    {title: 'Adidas Ozweego', img: '/girl.jpg', price: 999, route:"#"},
-    {title: 'Nike Flex Runner 2', img: '/kids.png', price:250, route:"#"},
-    {title: 'Air Jordan Zion 1', img: '/men.png', price: 599, route:"#"},
-    {title: 'Adidas Ozweego', img: '/girl.jpg', price: 999, route:"#"},
-    {title: 'Nike Flex Runner 2', img: '/kids.png', price:250, route:"#"},
+    {name: 'Air Jordan Zion 1', img: '/men.png', price: 599, url:"#"},
+    {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999, url:"#"},
+    {name: 'Nike Flex Runner 2', img: '/kids.png', price:250, url:"#"},
+    {name: 'Air Jordan Zion 1', img: '/men.png', price: 599, url:"#"},
+    {name: 'Adidas Ozweego', img: '/girl.jpg', price: 999, url:"#"},
+    {name: 'Nike Flex Runner 2', img: '/kids.png', price:250, url:"#"},
   ])
 
   const [infoCards, setInfoCards] = useState<InfoCardType[]>([

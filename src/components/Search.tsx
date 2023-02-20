@@ -8,8 +8,6 @@ import SearchBar from "./SearchBar";
 export default function Search() {
     const { openSearch, handleOpenSearch }:Partial<ContextType>  = useContext(MyContext)
 
-    useEffect(() => console.log(openSearch), [openSearch])
-
     return (
         <div className={
             `absolute top-0 w-full h-screen left-0 backdrop-blur-sm flex-col transition-transform duration-500

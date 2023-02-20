@@ -1,8 +1,6 @@
-export type ItemType = {
-    name: string;
-    price: number;
-    brand: string;
-    sizes: number[] | number;
-    colors: string[] | string;
-    url: string;
+import { ItemType } from "./item";
+
+export interface CardType extends Pick<ItemType, 'name' | 'price' | 'url'> {
+    img: string;
+    size: 'sm' | 'md' | 'lg'
 }

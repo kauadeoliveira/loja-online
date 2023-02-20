@@ -13,7 +13,7 @@ export default function InfoCard({ icon, title, description }: InfoCardType) {
             </i>
             <div>
                 <h4 className="font-bold text-lg font-josefin lg:text-xl">{title}</h4>
-                <p className="font-roboto text-sm">{description}</p>
+                <p className="text-sm">{description}</p>
             </div>
       </div>
     )

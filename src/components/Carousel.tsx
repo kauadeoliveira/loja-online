@@ -13,10 +13,10 @@ export default function Carousel({ array }: CarouselType) {
     return(
         <div>
             <div className="flex flex-wrap items-center p-3 md:hidden">
-                <Swiper slidesPerView={1.1}>
+                <Swiper slidesPerView={1.2}>
                     {array.map((item, index) => (
                         <SwiperSlide key={index} className="py-2">
-                            <Card img={item.img} title={item.title} price={item.price} route={item.route}/>
+                            <Card img={item.img} name={item.name} price={item.price} url={item.url}/>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -27,7 +27,7 @@ export default function Carousel({ array }: CarouselType) {
                 <Swiper slidesPerView={2.5}>
                     {array.map((item, index) => (
                         <SwiperSlide key={index} className="py-2">
-                            <Card img={item.img} title={item.title} price={item.price} route={item.route}/>
+                            <Card img={item.img} name={item.name} price={item.price} url={item.url}/>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -37,7 +37,7 @@ export default function Carousel({ array }: CarouselType) {
                 <Swiper slidesPerView={3.2}>
                     {array.map((item, index) => (
                         <SwiperSlide key={index} className="py-2">
-                            <Card img={item.img} title={item.title} price={item.price} route={item.route}/>
+                            <Card img={item.img} name={item.name} price={item.price} url={item.url}/>
                         </SwiperSlide>
                     ))}
                 </Swiper>
