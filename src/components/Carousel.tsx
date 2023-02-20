@@ -16,7 +16,7 @@ export default function Carousel({ array }: CarouselType) {
                 <Swiper slidesPerView={1.2}>
                     {array.map((item, index) => (
                         <SwiperSlide key={index} className="py-2">
-                            <Card img={item.img} name={item.name} price={item.price} url={item.url}/>
+                            <Card size="lg" img={item.img} name={item.name} price={item.price} url={item.url}/>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -27,7 +27,7 @@ export default function Carousel({ array }: CarouselType) {
                 <Swiper slidesPerView={2.5}>
                     {array.map((item, index) => (
                         <SwiperSlide key={index} className="py-2">
-                            <Card img={item.img} name={item.name} price={item.price} url={item.url}/>
+                            <Card size="lg" img={item.img} name={item.name} price={item.price} url={item.url}/>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -37,7 +37,7 @@ export default function Carousel({ array }: CarouselType) {
                 <Swiper slidesPerView={3.2}>
                     {array.map((item, index) => (
                         <SwiperSlide key={index} className="py-2">
-                            <Card img={item.img} name={item.name} price={item.price} url={item.url}/>
+                            <Card size="lg" img={item.img} name={item.name} price={item.price} url={item.url}/>
                         </SwiperSlide>
                     ))}
                 </Swiper>

@@ -21,7 +21,7 @@ export default function Category() {
 
 
 
-    if(categoryId === 'masculino' || categoryId === 'faminino' || categoryId === 'infantil'){
+    if(categoryId === 'masculino' || categoryId === 'feminino' || categoryId === 'infantil'){
         return(
             <>
             <Head>

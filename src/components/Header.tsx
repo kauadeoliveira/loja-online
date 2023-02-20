@@ -13,9 +13,9 @@ export default function Header() {
     const { handleOpenSearch, handleOpenMenu, openMenu }: Partial<ContextType> = useContext(MyContext);
 
     const categories: CategoryType[] = [
-        {name: 'Masculino', route: '#'},
-        {name: 'Feminino', route: '#'},
-        {name: 'Infantil', route: '#'},
+        {name: 'Masculino', route: '/category/masculino'},
+        {name: 'Feminino', route: '/category/feminino'},
+        {name: 'Infantil', route: '/category/infantil'},
         {name: 'Contato', route: '#'},
     ]
 
@@ -74,14 +74,3 @@ export default function Header() {
         </header>
     )
 }
-
-
-
-
-
-
-
-// relative px-2 after:content-['']
-// after:absolute after:bg-red-700 after:h-[2px] after:w-0
-// after:left-0 after:-bottom-2 after:duration-300 hover:after:w-full
-// hover:text-black
