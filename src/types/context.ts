@@ -5,5 +5,7 @@ export type ContextType = {
     handleOpenMenu: () => void;
     openSearch: boolean;
     handleOpenSearch: () => void;
-    categories: CategoryPageType[]
+    openFilterMenu: boolean;
+    handleOpenFilterMenu: () => void;
+    categories: CategoryPageType[];
 }

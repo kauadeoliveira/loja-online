@@ -14,12 +14,12 @@ export default function Search() {
             ${openSearch ? 'transform-none' : 'translate-y-[-100vh]'}
             `
         }>
-            <div className="w-full bg-white p-2 h-screen md:h-1/3">
-                <div className="flex justify-end">
-                    <button onClick={handleOpenSearch} className="text-2xl">
-                        <HiOutlineX />
-                    </button>
-                </div>
+            <div className="w-full bg-white px-5 py-3 h-screen md:h-1/3">
+            <div className="flex items-center justify-end">
+                <button className="opacity-60 text-2xl" onClick={handleOpenSearch}>
+                    <HiOutlineX />
+                </button>
+            </div>
                 <div className="p-5">
                     <div className="flex justify-center">
                         <SearchBar />
