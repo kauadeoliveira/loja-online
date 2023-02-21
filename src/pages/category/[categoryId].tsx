@@ -38,7 +38,7 @@ export default function Category() {
                 </button>
             </div>
             <main className='mt-1 mb-20'>
-                <FilterMenu />
+                <FilterMenu products={category.products}/>
                 <div className='flex gap-3 flex-wrap px-3'>
                     {category.products.map((product, index) => {
                         return(

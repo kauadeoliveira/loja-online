@@ -1,13 +1,42 @@
 import { MyContext } from "@/context"
 import { ContextType } from "@/types/context";
-import { useContext } from "react"
+import { ItemType } from "@/types/item";
+import { useContext, useRef, useEffect, useState } from "react"
 import { HiOutlineX } from "react-icons/hi";
+import Button from "./Button";
+import Size from "./Size";
 
+type Filters = {
+    colors: string | string[];
+    sizes: number | number[];
+    sortBy: 'highToLow' | 'lowToHigh';
+}
 
-export default function FilterMenu() {
-    const myContext: any = useContext(MyContext)
-    const { openFilterMenu }: Pick<ContextType, 'openFilterMenu'> = myContext
-    const { handleOpenFilterMenu }: Pick<ContextType, 'handleOpenFilterMenu'> = myContext
+type FilterMenuType = {
+    products: ItemType[]
+}
+
+export default function FilterMenu({ products }: FilterMenuType) {
+    const myContext: any = useContext(MyContext);
+    const { openFilterMenu }: Pick<ContextType, 'openFilterMenu'> = myContext;
+    const { handleOpenFilterMenu }: Pick<ContextType, 'handleOpenFilterMenu'> = myContext;
+
+    const [filters, setFilters] = useState<Filters>();
+
+    const highToLowRef = useRef<HTMLInputElement>(null);
+    const lowToHighRef = useRef<HTMLInputElement>(null);
+    const [sortByFilter, setSortByFilter] = useState<'highToLow' | 'lowToHigh'>()
+    const handleSortByFilter = () => setSortByFilter(highToLowRef.current?.checked ? 'highToLow' : 'lowToHigh')
+    
+    const handleAllSizes = (products: ItemType[]): number[] => {
+        const sizes: number[] = [];
+        products.map(product => {
+            product.sizes.map(size => !sizes.includes(size) ? sizes.push(size) : false)
+        })
+        return sizes
+    } 
+
+    const allSizes = handleAllSizes(products);
 
     return(
         <div className={`
@@ -24,39 +53,24 @@ export default function FilterMenu() {
             <div className="h-[20vh] border-b flex flex-col justify-center p-2">
                 <h2 className="text-lg mb-3 font-semibold">Ordenar por</h2>
                 <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="highLow" />
+                    <input type="radio" name="sortBy" id="highToLow" ref={highToLowRef} onFocus={handleSortByFilter} />
                     <label htmlFor="highLow">Preço: Maior pro menor</label>
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="lowHigh" />
-                    <label htmlFor="lowHigh">Preço: Menor Pro maior</label>
-                </div>
-            </div>
-
-            <div className="h-[20vh] border-b flex flex-col justify-center p-2">
-                <h2 className="text-lg mb-3 font-semibold">Cor</h2>
-                <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="highLow" />
-                    <label htmlFor="highLow">Preço: Maior pro menor</label>
-                </div>
-
-                <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="lowHigh" />
+                    <input type="radio" name="sortBy" id="lowToHigh" ref={lowToHighRef} onFocus={handleSortByFilter} />
                     <label htmlFor="lowHigh">Preço: Menor Pro maior</label>
                 </div>
             </div>
 
             <div className="h-[20vh] border-b flex flex-col justify-center p-2">
                 <h2 className="text-lg mb-3 font-semibold">Tamanho</h2>
-                <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="highLow" />
-                    <label htmlFor="highLow">Preço: Maior pro menor</label>
-                </div>
-
-                <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="lowHigh" />
-                    <label htmlFor="lowHigh">Preço: Menor Pro maior</label>
+                <div>
+                    {allSizes.map((size, index) => {
+                        return(
+                            <Size size={size} key={index}/>
+                        )
+                    })}
                 </div>
             </div>
             
@@ -71,6 +85,11 @@ export default function FilterMenu() {
                     <input type="radio" name="sortBy" id="lowHigh" />
                     <label htmlFor="lowHigh">Preço: Menor Pro maior</label>
                 </div>
+            </div>
+
+            <div>
+                <Button mode="light">Limpar</Button>
+                <Button mode="dark">Aplicar</Button>
             </div>
         </div>
     )

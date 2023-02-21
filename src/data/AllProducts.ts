@@ -34,7 +34,7 @@ const allProducts: ItemType[] = [
         genrer: 'masculine',
         kids: false,
         price: 300,
-        sizes: [40, 43],
+        sizes: [38, 40, 43],
         url: '#'
     },
     {
@@ -46,7 +46,7 @@ const allProducts: ItemType[] = [
         genrer: 'masculine',
         kids: false,
         price: 900,
-        sizes: [40, 43],
+        sizes: [40, 43, 45],
         url: '#'
     },
     {

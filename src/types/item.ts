@@ -6,7 +6,7 @@ export type ItemType = {
     kids: boolean;
     price: number;
     brand: string;
-    sizes: number[] | number;
+    sizes: number[];
     colors: string[] | string;
     url: string;
 }

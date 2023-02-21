@@ -3,12 +3,14 @@ import Link from "next/link";
 
 type ButtonType = {
     mode: 'dark' | 'light' | 'transparent';
-    children: ChildrenType
+    children: ChildrenType;
+    clickEvent?: () => void;
 }
 
-export default function Button({ mode, children }: ButtonType) {
+export default function Button({ mode, children, clickEvent }: ButtonType) {
     return (
         <button
+        onClick={clickEvent}
         className={`
          ${mode === 'dark' ? 'bg-black text-white' : (mode === 'light' ? 'bg-white text-black' : 'bg-transparent text-white')}
          inline-block py-2 px-4 rounded-md
