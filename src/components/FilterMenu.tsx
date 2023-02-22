@@ -1,7 +1,8 @@
 import { MyContext } from "@/context"
 import { ContextType } from "@/types/context";
 import { ItemType } from "@/types/item";
-import { useContext, useRef, useEffect, useState } from "react"
+import { removeFromArray } from "@/utils/removeFromArray";
+import { useContext, useRef, useEffect, useState, ChangeEventHandler, ChangeEvent, MouseEvent } from "react"
 import { HiOutlineX } from "react-icons/hi";
 import Button from "./Button";
 import Size from "./Size";
@@ -22,12 +23,27 @@ export default function FilterMenu({ products }: FilterMenuType) {
     const { handleOpenFilterMenu }: Pick<ContextType, 'handleOpenFilterMenu'> = myContext;
 
     const [filters, setFilters] = useState<Filters>();
-
     const highToLowRef = useRef<HTMLInputElement>(null);
     const lowToHighRef = useRef<HTMLInputElement>(null);
     const [sortByFilter, setSortByFilter] = useState<'highToLow' | 'lowToHigh'>()
+    const [sizesFilter, setSizesFilter] = useState<number[]>([]);
+
+
     const handleSortByFilter = () => setSortByFilter(highToLowRef.current?.checked ? 'highToLow' : 'lowToHigh')
+
+    const handleSizesFilter = (event: MouseEvent<HTMLInputElement>) => {
+        const size = Number((event.target as any).id)
+        const sizes = sizesFilter;
+        if((event.target as any).checked){
+            sizes.push(size)
+            setSizesFilter(sizes)
+        }
+        else{
+            sizes.includes(size) ? setSizesFilter(removeFromArray(sizes, size)) : false
+        }
+    } 
     
+
     const handleAllSizes = (products: ItemType[]): number[] => {
         const sizes: number[] = [];
         products.map(product => {
@@ -65,10 +81,27 @@ export default function FilterMenu({ products }: FilterMenuType) {
 
             <div className="h-[20vh] border-b flex flex-col justify-center p-2">
                 <h2 className="text-lg mb-3 font-semibold">Tamanho</h2>
-                <div>
+                <div className="flex gap-3">
                     {allSizes.map((size, index) => {
                         return(
-                            <Size size={size} key={index}/>
+                            <label
+                             htmlFor={`${size}`}
+                             key={index}
+                             
+                             className="cursor-pointer relative"
+                            >
+                                <input 
+                                 type="checkbox" 
+                                 id={`${size}`}
+                                 onClick={handleSizesFilter}
+                                 className="
+                                    appearance-none h-7 w-9 border-[1px]
+                                    rounded-md checked:border-black" 
+                                />
+                                <span className="flex h-7 w-9 absolute top-0 justify-center items-center">
+                                    {size}
+                                </span>
+                            </label>
                         )
                     })}
                 </div>
@@ -76,15 +109,6 @@ export default function FilterMenu({ products }: FilterMenuType) {
             
             <div className="h-[20vh] border-b flex flex-col justify-center p-2">
                 <h2 className="text-lg mb-3 font-semibold">Faixa de preço</h2>
-                <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="highLow" />
-                    <label htmlFor="highLow">Preço: Maior pro menor</label>
-                </div>
-
-                <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="lowHigh" />
-                    <label htmlFor="lowHigh">Preço: Menor Pro maior</label>
-                </div>
             </div>
 
             <div>
