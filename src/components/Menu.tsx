@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { HiOutlineShoppingBag, HiOutlineHeart, HiOutlineX, HiOutlineMail } from "react-icons/hi";
 
 
+
 type MenuType = {
     open?: boolean;
 
@@ -17,7 +18,7 @@ export default function Menu() {
     const { handleOpenMenu, openMenu }: Partial<ContextType> = useContext(MyContext);
 
     const categories: CategoryType[] = [
-        {name: 'Masculino', route: '#'},
+        {name: 'Masculino', route: '/category/masculino'},
         {name: 'Feminino', route: '#'},
         {name: 'Infantil', route: '#'},
         {name: 'Carrinho', route: '#'},

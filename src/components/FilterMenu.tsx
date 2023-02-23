@@ -8,9 +8,8 @@ import Button from "./Button";
 import Size from "./Size";
 
 type Filters = {
-    colors: string | string[];
-    sizes: number | number[];
-    sortBy: 'highToLow' | 'lowToHigh';
+    sizes: number[];
+    sortBy?: 'highToLow' | 'lowToHigh';
 }
 
 type FilterMenuType = {
@@ -21,29 +20,36 @@ export default function FilterMenu({ products }: FilterMenuType) {
     const myContext: any = useContext(MyContext);
     const { openFilterMenu }: Pick<ContextType, 'openFilterMenu'> = myContext;
     const { handleOpenFilterMenu }: Pick<ContextType, 'handleOpenFilterMenu'> = myContext;
+    const { filters, setFilters } = myContext;
 
-    const [filters, setFilters] = useState<Filters>();
     const highToLowRef = useRef<HTMLInputElement>(null);
     const lowToHighRef = useRef<HTMLInputElement>(null);
-    const [sortByFilter, setSortByFilter] = useState<'highToLow' | 'lowToHigh'>()
+    const newestRef = useRef<HTMLInputElement>(null);
+    const [sortByFilter, setSortByFilter] = useState<'highToLow' | 'lowToHigh' | 'newest'>('newest')
     const [sizesFilter, setSizesFilter] = useState<number[]>([]);
 
+    // Função para definir a ordem dos produtos: ordem de lançamento, do maior pro menor preço ou do menor pro maior preço
+    const handleSortByFilter = () => {
+        setSortByFilter(
+            highToLowRef.current?.checked ? 'highToLow'
+            : lowToHighRef.current?.checked ? 'lowToHigh' 
+            : 'newest'
+        )
+    }
 
-    const handleSortByFilter = () => setSortByFilter(highToLowRef.current?.checked ? 'highToLow' : 'lowToHigh')
-
+    // Função para selecioar os tamanhos de sapato que irão para o filtro.
     const handleSizesFilter = (event: MouseEvent<HTMLInputElement>) => {
         const size = Number((event.target as any).id)
         const sizes = sizesFilter;
         if((event.target as any).checked){
             sizes.push(size)
             setSizesFilter(sizes)
-        }
-        else{
+        }else{
             sizes.includes(size) ? setSizesFilter(removeFromArray(sizes, size)) : false
         }
     } 
     
-
+    // Função que junta todos os 'sizes' sem repetir o valor em um array 
     const handleAllSizes = (products: ItemType[]): number[] => {
         const sizes: number[] = [];
         products.map(product => {
@@ -51,8 +57,13 @@ export default function FilterMenu({ products }: FilterMenuType) {
         })
         return sizes
     } 
-
     const allSizes = handleAllSizes(products);
+
+    const handleAllFilters = () => {
+        setFilters({sizes: sizesFilter, sortBy: sortByFilter});
+        handleOpenFilterMenu()
+        console.log(filters)
+    }
 
     return(
         <div className={`
@@ -66,20 +77,56 @@ export default function FilterMenu({ products }: FilterMenuType) {
                     <HiOutlineX />
                 </button>
             </div>
-            <div className="h-[20vh] border-b flex flex-col justify-center p-2">
+            <div className="border-b flex flex-col px-2 py-5">
                 <h2 className="text-lg mb-3 font-semibold">Ordenar por</h2>
-                <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="highToLow" ref={highToLowRef} onFocus={handleSortByFilter} />
-                    <label htmlFor="highLow">Preço: Maior pro menor</label>
-                </div>
+                    <label htmlFor="highToLow" className="flex gap-1 items-center">
+                        <input
+                         type="radio"
+                         name="sortBy"
+                         id="highToLow"
+                         ref={highToLowRef}
+                         onFocus={handleSortByFilter}
+                         className="
+                            appearance-none w-4 h-4 border-2 rounded-full
+                            checked:bg-black checked:border-4 cursor-pointer
+                         "
+                        />
+                        <span>Preço: Maior pro menor</span>
+                    </label>
 
-                <div className="flex items-center gap-2">
-                    <input type="radio" name="sortBy" id="lowToHigh" ref={lowToHighRef} onFocus={handleSortByFilter} />
-                    <label htmlFor="lowHigh">Preço: Menor Pro maior</label>
-                </div>
+                    <label htmlFor="lowToHigh" className="flex gap-1 items-center">
+                        <input
+                         type="radio"
+                         name="sortBy"
+                         id="lowToHigh"
+                         ref={lowToHighRef}
+                         onFocus={handleSortByFilter}
+                         className="
+                            appearance-none w-4 h-4 border-2 rounded-full
+                            checked:bg-black checked:border-4 cursor-pointer
+                         "
+                        />
+                        <span>Preço: Menor Pro maior</span>
+                    </label>
+
+                    <label htmlFor="newest" className="flex gap-1 items-center">
+                        <input
+                         type="radio"
+                         name="sortBy"
+                         id="newest"
+                         ref={newestRef}
+                         defaultChecked
+                         onFocus={handleSortByFilter}
+                         className="
+                            appearance-none w-4 h-4 border-2 rounded-full
+                            checked:bg-black checked:border-4 cursor-pointer
+                         "
+                        />
+                        <span>Lançamentos</span>
+                    </label>
             </div>
 
-            <div className="h-[20vh] border-b flex flex-col justify-center p-2">
+            <div className="border-b flex flex-col px-2 py-5">
                 <h2 className="text-lg mb-3 font-semibold">Tamanho</h2>
                 <div className="flex gap-3">
                     {allSizes.map((size, index) => {
@@ -88,17 +135,19 @@ export default function FilterMenu({ products }: FilterMenuType) {
                              htmlFor={`${size}`}
                              key={index}
                              
-                             className="cursor-pointer relative"
+                             className="
+                                cursor-pointer relative hover:bg-slate-200
+                                transition-colors duration-300 h-7 w-9 rounded-md"
                             >
                                 <input 
                                  type="checkbox" 
                                  id={`${size}`}
                                  onClick={handleSizesFilter}
                                  className="
-                                    appearance-none h-7 w-9 border-[1px]
-                                    rounded-md checked:border-black" 
+                                    appearance-none h-full w-full 
+                                    rounded-md border-2 checked:border-black" 
                                 />
-                                <span className="flex h-7 w-9 absolute top-0 justify-center items-center">
+                                <span className="flex h-full w-full absolute top-0 justify-center items-center">
                                     {size}
                                 </span>
                             </label>
@@ -107,13 +156,13 @@ export default function FilterMenu({ products }: FilterMenuType) {
                 </div>
             </div>
             
-            <div className="h-[20vh] border-b flex flex-col justify-center p-2">
+            <div className="border-b flex flex-col px-2 py-5">
                 <h2 className="text-lg mb-3 font-semibold">Faixa de preço</h2>
             </div>
 
-            <div>
-                <Button mode="light">Limpar</Button>
-                <Button mode="dark">Aplicar</Button>
+            <div className="flex gap-3 p-2">
+                <Button mode="dark">Limpar</Button>
+                <Button mode="dark" clickEvent={handleAllFilters}>Aplicar</Button>
             </div>
         </div>
     )

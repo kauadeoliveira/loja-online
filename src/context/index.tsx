@@ -9,10 +9,9 @@ type ContextProviderProps = {
     children: ChildrenType
 }
 
-export type ProductFilterType = {
-    colors: string | string[];
-    sortBy: 'highToLow' | 'lowToHigh';
-    sizes: number | number[];
+type Filters = {
+    sizes?: number[];
+    sortBy?: 'highToLow' | 'lowToHigh';
 }
 
 export const MyContext = createContext({});
@@ -44,6 +43,8 @@ export default function ContextProvider({ children }: ContextProviderProps) {
 
     const categories: CategoryPageType[]= [masculine, feminine, kids]
 
+    const [filters, setFilters] = useState<Filters>({sizes: undefined, sortBy:undefined});
+
     return(
         <MyContext.Provider
          value={{
@@ -54,6 +55,8 @@ export default function ContextProvider({ children }: ContextProviderProps) {
             openFilterMenu,
             handleOpenFilterMenu,
             categories,
+            filters,
+            setFilters
          }}
         >
             {children}
