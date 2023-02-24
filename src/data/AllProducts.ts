@@ -17,7 +17,7 @@ const allProducts: ItemType[] = [
         name: 'Air Jordan Zion 1',
         img: '/men.png',
         id: 1,
-        brand: 'jordan',
+        brand: 'nike',
         colors: 'black',
         genrer: 'masculine',
         kids: false,

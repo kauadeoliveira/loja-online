@@ -37,8 +37,8 @@ export default function Category() {
                     <HiOutlineAdjustments />
                 </button>
             </div>
+            <FilterMenu products={category.products}/>
             <main className='mt-1 mb-20'>
-                <FilterMenu products={category.products}/>
                 <div className='flex gap-3 flex-wrap px-3'>
                     {category.products.map((product, index) => {
                         return(
