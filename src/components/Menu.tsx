@@ -28,17 +28,17 @@ export default function Menu() {
 
     return(
         <nav className={`
-         bg-white fixed top-0 left-0 h-screen w-full transition-transform duration-500 
+         bg-white fixed top-0 left-0 h-screen w-full transition-transform duration-500 px-5
          md:hidden ${openMenu ? 'transform-none' : 'translate-y-[-100vh]'}`}
         >
-            <div className="flex items-center px-5 py-3 justify-end">
+            <div className="flex items-center py-3 justify-end">
                 <button className="opacity-60 text-2xl" onClick={handleOpenMenu}>
                     <i>
                         <HiOutlineX />
                     </i>
                 </button>
             </div>
-            <div className="px-5 text-2xl font-semibold">
+            <div className="text-2xl font-semibold">
                 <ul className="flex flex-col gap-4 uppercase">
                     {
                         categories.map((category, index) => (

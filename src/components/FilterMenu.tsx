@@ -6,6 +6,7 @@ import { useContext, useRef, useEffect, useState, ChangeEventHandler, ChangeEven
 import { HiOutlineX } from "react-icons/hi";
 import Accordion from "./Accordion";
 import Button from "./Button";
+import Radio from "./Radio";
 import SearchBar from "./SearchBar";
 import Size from "./Size";
 
@@ -71,88 +72,41 @@ export default function FilterMenu({ products }: FilterMenuType) {
         console.log(filters)
     }
 
-    // useEffect(() => console.log(products), [])
+    // useEffect(() => console.log(sortByFilter), [sortByFilter])
 
     return(
         <div className={`
-         w-full h-screen flex flex-col fixed top-0 left-0 bg-white z-20
+         w-full h-screen flex flex-col fixed top-0 left-0 bg-white z-20 px-5
          ${openFilterMenu ? 'transform-none' : 'translate-y-[-100vh]'}
          transition-transform duration-500
         `}>
-            <div className="flex items-center px-5 py-3 justify-between text-2xl">
-                <h1 className="font-josefin font-semibold">Filter</h1>
+            <div className="flex items-center justify-end text-xl py-3">
                 <button className="opacity-60" onClick={handleOpenFilterMenu}>
                     <HiOutlineX />
                 </button>
-            </div>
+            </div> 
             
-            <div className="h-full overflow-y-auto">
-                <div className="border-b flex flex-col px-2 py-5">
-                    <h2 className="text-lg mb-3 font-semibold">Ordenar por</h2>
-                    <label htmlFor="newest" className="flex gap-1 items-center">
-                        <input
-                            type="radio"
-                            name="sortBy"
-                            id="newest"
-                            ref={newestRef}
-                            defaultChecked
-                            onFocus={handleSortByFilter}
-                            className="
-                                appearance-none w-4 h-4 border-2 rounded-full
-                                checked:bg-black checked:border-4 cursor-pointer
-                            "
-                        />
-                        <span>Lançamentos</span>
-                    </label>
-                    <label htmlFor="highToLow" className="flex gap-1 items-center">
-                        <input
-                            type="radio"
-                            name="sortBy"
-                            id="highToLow"
-                            ref={highToLowRef}
-                            onFocus={handleSortByFilter}
-                            className="
-                                appearance-none w-4 h-4 border-2 rounded-full
-                                checked:bg-black checked:border-4 cursor-pointer
-                            "
-                        />
-                        <span>Preço: Maior pro menor</span>
-                    </label>
-                    <label htmlFor="lowToHigh" className="flex gap-1 items-center">
-                        <input
-                            type="radio"
-                            name="sortBy"
-                            id="lowToHigh"
-                            ref={lowToHighRef}
-                            onFocus={handleSortByFilter}
-                            className="
-                                appearance-none w-4 h-4 border-2 rounded-full
-                                checked:bg-black checked:border-4 cursor-pointer
-                            "
-                        />
-                        <span>Preço: Menor Pro maior</span>
-                    </label>
-                </div>
-                <div className="border-b flex flex-col px-2 py-5">
-                    <h2 className="text-lg mb-3 font-semibold">Tamanho</h2>
-                    <div className="flex gap-3">
+            <div className="h-full overflow-y-auto flex flex-col gap-4">
+                <Accordion title="Ordenar Por">
+                    <div className="flex flex-col gap-2 text-lg">
+                        <Radio name="sortBy" id="newest" ref={newestRef} title="Lançamentos" onFocus={handleSortByFilter} />
+                        <Radio name="sortBy" id="highToLow" ref={highToLowRef} title="Preço: Maior pro menor" onFocus={handleSortByFilter} />
+                        <Radio name="sortBy" id="lowToHigh" ref={lowToHighRef} title="Preço: Menor pro maior" onFocus={handleSortByFilter} />
+                    </div>
+                </Accordion>
+                <Accordion title="Tamanho">
+                    <div className="flex gap-2">
                         {allSizes.map((size, index) => {
                             return(
                                 <label
-                                    htmlFor={`${size}`}
-                                    key={index}
-                
-                                    className="
-                                    cursor-pointer relative hover:bg-slate-200
-                                    transition-colors duration-300 h-7 w-9 rounded-md"
-                                >
+                                htmlFor={`${size}`}
+                                key={index}
+                                className="cursor-pointer relative hover:bg-slate-200 transition-colors duration-300 h-7 w-9 rounded-md">
                                     <input
                                         type="checkbox"
                                         id={`${size}`}
                                         onClick={handleSizesFilter}
-                                        className="
-                                        appearance-none h-full w-full
-                                        rounded-md border-2 checked:border-black"
+                                        className="appearance-none h-full w-full rounded-md border-2 checked:border-black"
                                     />
                                     <span className="flex h-full w-full absolute top-0 justify-center items-center">
                                         {size}
@@ -161,24 +115,18 @@ export default function FilterMenu({ products }: FilterMenuType) {
                             )
                         })}
                     </div>
-                </div>
-                
-                <div className="border-b flex flex-col px-2 py-5">
-                    <h2 className="text-lg mb-3 font-semibold">Marca</h2>
+                </Accordion>
+                <Accordion title="Marca">
                     <div className="flex gap-2">
                         <label htmlFor="">
                             <input type="checkbox" />
                             aaaaaaaaa
                         </label>
                     </div>
-                </div>
-                <div className="border-b flex flex-col px-2 py-5">
-                    <h2 className="text-lg mb-3 font-semibold">Faixa de preço</h2>
-                </div>
-                <Accordion />
-                <Accordion />
-                <Accordion />
-                <Accordion />
+                </Accordion>
+                <Accordion title="Faixa de preço">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni inventore, veniam expedita reprehenderit animi eligendi laborum, repellat, obcaecati minus quod possimus harum molestiae quis facere illum repudiandae sint rerum deleniti.</p>
+                </Accordion>
             </div>
         </div>
     )
