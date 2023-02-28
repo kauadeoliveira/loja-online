@@ -72,7 +72,7 @@ export default function FilterMenu({ products }: FilterMenuType) {
         console.log(filters)
     }
 
-    // useEffect(() => console.log(sortByFilter), [sortByFilter])
+    useEffect(() => console.log(products), [products])
 
     return(
         <div className={`
@@ -85,7 +85,6 @@ export default function FilterMenu({ products }: FilterMenuType) {
                     <HiOutlineX />
                 </button>
             </div> 
-            
             <div className="h-full overflow-y-auto flex flex-col gap-4">
                 <Accordion title="Ordenar Por">
                     <div className="flex flex-col gap-2 text-lg">
@@ -96,24 +95,9 @@ export default function FilterMenu({ products }: FilterMenuType) {
                 </Accordion>
                 <Accordion title="Tamanho">
                     <div className="flex gap-2">
-                        {allSizes.map((size, index) => {
-                            return(
-                                <label
-                                htmlFor={`${size}`}
-                                key={index}
-                                className="cursor-pointer relative hover:bg-slate-200 transition-colors duration-300 h-7 w-9 rounded-md">
-                                    <input
-                                        type="checkbox"
-                                        id={`${size}`}
-                                        onClick={handleSizesFilter}
-                                        className="appearance-none h-full w-full rounded-md border-2 checked:border-black"
-                                    />
-                                    <span className="flex h-full w-full absolute top-0 justify-center items-center">
-                                        {size}
-                                    </span>
-                                </label>
-                            )
-                        })}
+                        {allSizes.map((size, index) => (
+                            <Size size={size.toString()} id={size.toString()} key={index} onClick={handleSizesFilter}/>
+                        ))}
                     </div>
                 </Accordion>
                 <Accordion title="Marca">
