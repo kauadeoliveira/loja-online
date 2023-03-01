@@ -6,6 +6,7 @@ import { useContext, useRef, useEffect, useState, ChangeEventHandler, ChangeEven
 import { HiOutlineX } from "react-icons/hi";
 import Accordion from "./Accordion";
 import Button from "./Button";
+import Checkbox from "./Checkbox";
 import Radio from "./Radio";
 import SearchBar from "./SearchBar";
 import Size from "./Size";
@@ -102,10 +103,8 @@ export default function FilterMenu({ products }: FilterMenuType) {
                 </Accordion>
                 <Accordion title="Marca">
                     <div className="flex gap-2">
-                        <label htmlFor="">
-                            <input type="checkbox" />
-                            aaaaaaaaa
-                        </label>
+                        <Checkbox id="a" title="nike" />
+                        <Checkbox id="b" title="adidas" />
                     </div>
                 </Accordion>
                 <Accordion title="Faixa de preço">

@@ -12,7 +12,7 @@ export default function Accordion({ title, children }: AccordionType) {
     const handleOpenAccordion = () => setOpenAcordion(!openAccordion);
 
     return(
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col">
             <div className={`flex gap-1 items-center font-semibold cursor-pointer text-2xl uppercase`} onClick={handleOpenAccordion}>
                 <i className={`${openAccordion ? 'rotate-90' : 'rotate-0'} transition-transform duration-500`}>
                     <HiChevronRight />

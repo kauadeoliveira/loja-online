@@ -7,9 +7,9 @@ interface RadioType extends Pick<HTMLInputElement, 'name' | 'id'>{
 
 const Radio = forwardRef(function Radio({ title, name, id, onFocus }: RadioType, ref: LegacyRef<HTMLInputElement>){
     return(
-        <label htmlFor={id} className="labelForRadio flex capitalize items-center relative pl-5">
+        <label htmlFor={id} className="flex capitalize items-center relative pl-5 cursor-pointer">
             <input type="radio" name={name} id={id} ref={ref} onFocus={onFocus}
-            className="appearance-none "
+            className="appearance-none myradio"
             />
 
             <span className="block h-4 w-4 rounded-full border-2 border-black absolute left-0 top-[7px] after:content-[''] 

@@ -114,6 +114,14 @@ a {
   }
 }
 
-label.labelForRadio input[type="radio"]:checked ~ span:after {
+label .myradio:checked ~ span:after {
   transform: translate(-50%, -50%) scale(1)
+}
+
+.mycheckbox:checked ~ .hiCheck{
+  @apply opacity-100
+}
+
+.mycheckbox:checked{
+  @apply bg-black
 }
